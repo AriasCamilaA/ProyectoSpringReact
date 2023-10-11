@@ -1,5 +1,6 @@
 package com.api.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -38,9 +39,11 @@ public class ProveedorModel {
     private int celularRespaldoProveedor;
 
     @OneToMany(mappedBy = "proveedor")
+    @JsonIgnore
     private List<CalificacionModel> calificaciones;
 
     @OneToMany(mappedBy = "proveedor")
+    @JsonIgnore
     private List<OcHasProveedorModel> ocHasProveedores;
 
     @Column
