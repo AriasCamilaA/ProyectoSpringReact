@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -19,21 +20,22 @@ public class OrdenCompraModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private int idOrdenCompra;
+    private Integer idOrdenCompra;
 
     @Column
     private LocalDate fechaOC;
 
+    @ManyToOne
+    @JoinColumn(name = "id_estado_oc_fk")
+    private EstadoOcModel estadoOc;
+
+    @OneToMany(mappedBy = "ordenCompra")
+    private List<DetalleOcModel> detallesOc;
+
+    @OneToMany(mappedBy = "ordenCompra")
+    private List<OcHasProveedorModel> ocHasProveedores;
+
     @Column
     private boolean estado;
 
-    @OneToMany (cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_orden_compra_FK")
-    @OrderBy
-    private Set<DetalleOcModel> detalleOc;
-
-    @OneToMany (cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_orden_compra_FK")
-    @OrderBy
-    private Set<OcHasProveedorModel> ocHasProveedor;
 }

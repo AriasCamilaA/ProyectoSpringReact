@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -19,7 +20,7 @@ public class VentaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private int idVenta;
+    private Integer idVenta;
     
     @Column
     private LocalDate fechaVenta;
@@ -30,16 +31,17 @@ public class VentaModel {
     @Column
     private Long totalVenta;
 
-    @Column
-    private boolean estado;
-
-    @OneToOne (cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_pedido_FK")
-    @OrderBy
+    @ManyToOne
+    @JoinColumn(name = "id_pedido_fk")
     private PedidoModel pedido;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_venta_FK")
-    @OrderBy
-    private Set<DetalleVentaModel> detalleVenta;
+    @ManyToOne
+    @JoinColumn(name = "no_documento_usuario_fk")
+    private UsuarioModel usuario;
+
+    @OneToMany(mappedBy = "venta")
+    private List<DetalleVentaModel> detallesVenta;
+
+    @Column
+    private boolean estado;
 }

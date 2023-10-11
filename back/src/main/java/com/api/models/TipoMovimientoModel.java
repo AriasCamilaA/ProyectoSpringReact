@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -25,8 +26,7 @@ public class TipoMovimientoModel {
     @Column
     private boolean estado;
 
-    @OneToMany (cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_tipo_movimiento_FK")
-    @OrderBy
-    private Set<HistoricoModel> historico;
+    @OneToMany(mappedBy = "tipoMovimiento")
+    private List<HistoricoModel> historicos;
+
 }

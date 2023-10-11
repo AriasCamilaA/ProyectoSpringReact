@@ -17,7 +17,15 @@ public class RolHasPermisoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private int idRolHasPermiso;
+    private Integer idRolHasPermiso;
+
+    @ManyToOne
+    @JoinColumn(name = "id_rol_fk")
+    private RolModel rol;
+
+    @ManyToOne
+    @JoinColumn(name = "id_permiso_fk")
+    private PermisoModel permiso;
 
     @Column
     private boolean estado;

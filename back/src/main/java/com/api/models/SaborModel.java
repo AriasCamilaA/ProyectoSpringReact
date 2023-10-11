@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -17,16 +18,15 @@ public class SaborModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private int idSabor;
+    private Integer idSabor;
 
     @Column
     private String nombreSabor;
 
+    @OneToMany(mappedBy = "sabor")
+    private List<SaborHasProductoModel> saborHasProductos;
+
     @Column
     private boolean estado;
 
-    @OneToMany (cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_sabor_FK")
-    @OrderBy
-    private Set<SaborHasProductoModel> saborHasProducto;
 }

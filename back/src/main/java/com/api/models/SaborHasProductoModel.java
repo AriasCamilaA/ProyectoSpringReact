@@ -17,7 +17,15 @@ public class SaborHasProductoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private int idSaborHasProducto;
+    private Integer idSaborHasProducto;
+
+    @ManyToOne
+    @JoinColumn(name = "id_sabor_fk")
+    private SaborModel sabor;
+
+    @ManyToOne
+    @JoinColumn(name = "id_producto_fk")
+    private ProductoModel producto;
 
     @Column
     private boolean estado;

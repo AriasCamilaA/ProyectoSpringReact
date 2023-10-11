@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -16,7 +17,7 @@ public class EstadoPedidoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private int idEstadoPedido;
+    private Integer idEstadoPedido;
 
     @Column
     private String nombreEstado;
@@ -24,8 +25,7 @@ public class EstadoPedidoModel {
     @Column
     private boolean estado;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_estado_pedido_FK")
-    @OrderBy
-    private Set<PedidoModel> pedido;
+    @OneToMany(mappedBy = "estadoPedido")
+    private List<PedidoModel> pedidos;
+
 }

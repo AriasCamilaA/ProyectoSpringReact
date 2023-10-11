@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Data
@@ -17,7 +17,7 @@ public class ProveedorModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private int idProveedor;
+    private Integer idProveedor;
 
     @Column
     private boolean estadoProveedor;
@@ -40,16 +40,13 @@ public class ProveedorModel {
     @Column
     private int celularRespaldoProveedor;
 
+    @OneToMany(mappedBy = "proveedor")
+    private List<CalificacionModel> calificaciones;
+
+    @OneToMany(mappedBy = "proveedor")
+    private List<OcHasProveedorModel> ocHasProveedores;
+
     @Column
     private boolean estado;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_proveedor_FK")
-    @OrderBy
-    private Set<CalificacionModel> calificacion;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_proveedor_FK")
-    @OrderBy
-    private Set<OcHasProveedorModel> ocHasProveedor;
 }

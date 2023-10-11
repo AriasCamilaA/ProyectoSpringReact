@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -17,16 +18,14 @@ public class PermisoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private int idPermiso;
+    private Integer idPermiso;
 
     @Column
     private String descripcionPermiso;
 
+    @OneToMany(mappedBy = "permiso")
+    private List<RolHasPermisoModel> RolHasPermisos;
+
     @Column
     private boolean estado;
-
-    @OneToMany (cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_permiso_FK")
-    @OrderBy
-    private Set<RolHasPermisoModel> rolHasPermiso;
 }

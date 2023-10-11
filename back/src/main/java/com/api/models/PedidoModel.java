@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -18,7 +19,7 @@ public class PedidoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private int idPedido;
+    private Integer idPedido;
 
     @Column
     private String descripcionPedido;
@@ -26,11 +27,21 @@ public class PedidoModel {
     @Column
     private LocalDate fechaPedido;
 
+    @ManyToOne
+    @JoinColumn(name = "id_estado_pedido_fk")
+    private EstadoPedidoModel estadoPedido;
+
+    @ManyToOne
+    @JoinColumn(name = "no_documento_usuario_fk")
+    private UsuarioModel usuario;
+
+    @OneToMany(mappedBy = "pedido")
+    private List<CalificacionModel> calificaciones;
+
+    @OneToMany(mappedBy = "pedido")
+    private List<VentaModel> ventas;
+
     @Column
     private boolean estado;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_calificacion_FK")
-    @OrderBy
-    private Set<CalificacionModel> calificacion;
 }

@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -16,7 +17,7 @@ public class ProductoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private int idProducto;
+    private Integer idProducto;
 
     @Column
     private int precioProducto;
@@ -24,26 +25,22 @@ public class ProductoModel {
     @Column
     private String imagenProducto;
 
+    @OneToMany(mappedBy = "producto")
+    private List<DetalleVentaModel> detalleVentas;
+
+    @OneToMany(mappedBy = "producto")
+    private List<InventarioModel> inventarios;
+
+    @OneToMany(mappedBy = "producto")
+    private List<SaborHasProductoModel> saborHasProductos;
+
+    @OneToMany(mappedBy = "producto")
+    private List<HistoricoModel> historicos;
+
+    @ManyToOne
+    @JoinColumn(name = "id_categoria_fk")
+    private CategoriaModel categoria;
+
     @Column
     private boolean estado;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_producto_FK")
-    @OrderBy
-    private Set<HistoricoModel> historico;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_producto_FK")
-    @OrderBy
-    private Set<InventarioModel> inventario;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_producto_FK")
-    @OrderBy
-    private Set<DetalleVentaModel> detalleVenta;
-
-    @OneToMany (cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_producto_FK")
-    @OrderBy
-    private Set<SaborHasProductoModel> saborHasProducto;
 }

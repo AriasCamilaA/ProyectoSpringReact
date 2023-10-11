@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -17,16 +18,18 @@ public class RolModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private int idRol;
+    private Integer idRol;
 
     @Column
     private String nombreRol;
 
+    @OneToMany(mappedBy = "rol")
+    private List<RolHasPermisoModel> rolHasPermisos;
+
+    @OneToMany(mappedBy = "rol")
+    private List<UsuarioModel> usuarios;
+
     @Column
     private boolean estado;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_rol_FK")
-    @OrderBy
-    private Set<RolHasPermisoModel> rolHasPermiso;
 }

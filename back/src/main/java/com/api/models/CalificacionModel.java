@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "calificacion")
 public class CalificacionModel {
@@ -19,17 +21,36 @@ public class CalificacionModel {
     @Column
     private String comentarioCalificacion;
 
+    @ManyToOne
+    @JoinColumn(name = "id_proveedor_fk")
+    private ProveedorModel proveedor;
+
+    @ManyToOne
+    @JoinColumn(name = "id_pedido_fk")
+    private PedidoModel pedido;
+
     @Column
     private boolean estado;
 
     public CalificacionModel() {
     }
 
-    public CalificacionModel(Integer idCalificacion, int estrallasCalificacion, String comentarioCalificacion, boolean estado) {
+//    Constructor para calificación del proveedor
+    public CalificacionModel(Integer idCalificacion, int estrallasCalificacion, String comentarioCalificacion, ProveedorModel proveedor) {
         this.idCalificacion = idCalificacion;
         this.estrallasCalificacion = estrallasCalificacion;
         this.comentarioCalificacion = comentarioCalificacion;
-        this.estado = estado;
+        this.proveedor = proveedor;
+        this.estado = true;
+    }
+
+//    Constructor para calificación del pedido
+    public CalificacionModel(Integer idCalificacion, int estrallasCalificacion, String comentarioCalificacion, PedidoModel pedido) {
+        this.idCalificacion = idCalificacion;
+        this.estrallasCalificacion = estrallasCalificacion;
+        this.comentarioCalificacion = comentarioCalificacion;
+        this.pedido = pedido;
+        this.estado = true;
     }
 
     public Integer getIdCalificacion() {
@@ -54,6 +75,22 @@ public class CalificacionModel {
 
     public void setComentarioCalificacion(String comentarioCalificacion) {
         this.comentarioCalificacion = comentarioCalificacion;
+    }
+
+    public ProveedorModel getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(ProveedorModel proveedor) {
+        this.proveedor = proveedor;
+    }
+
+    public PedidoModel getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(PedidoModel pedido) {
+        this.pedido = pedido;
     }
 
     public boolean isEstado() {

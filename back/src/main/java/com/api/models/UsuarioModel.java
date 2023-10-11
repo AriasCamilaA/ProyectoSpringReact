@@ -17,7 +17,7 @@ public class UsuarioModel {
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    @Column
-   private int noDocumentoUsuario;
+   private Integer noDocumentoUsuario;
 
    @Column
    private String email;
@@ -34,21 +34,11 @@ public class UsuarioModel {
    @Column
    private int apellidoUsuario;
 
+   @ManyToOne
+   @JoinColumn(name = "id_rol_fk")
+   private RolModel rol;
+
    @Column
    private boolean estado;
 
-   @OneToMany(cascade = CascadeType.ALL)
-   @JoinColumn(name = "no_documento_usuario_FK")
-   @OrderBy
-   private Set<VentaModel> venta;
-
-   @OneToMany(cascade = CascadeType.ALL)
-   @JoinColumn(name = "no_documento_usuario_FK")
-   @OrderBy
-   private Set<PedidoModel> pedido;
-
-   @OneToMany(cascade = CascadeType.ALL)
-   @JoinColumn(name = "no_documento_usuario_FK")
-   @OrderBy
-   private Set<RolModel> rol;
 }

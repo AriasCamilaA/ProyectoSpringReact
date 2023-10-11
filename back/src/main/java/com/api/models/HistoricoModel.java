@@ -16,7 +16,7 @@ public class HistoricoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private int idHistorico;
+    private Integer idHistorico;
 
     @Column
     private LocalDate fechaMovimiento;
@@ -29,6 +29,18 @@ public class HistoricoModel {
 
     @Column
     private String tipoHistorico;
+
+    @ManyToOne
+    @JoinColumn(name = "id_insumo_fk")
+    private InsumoModel insumo;
+
+    @ManyToOne
+    @JoinColumn(name = "id_producto_fk")
+    private ProductoModel producto;
+
+    @ManyToOne
+    @JoinColumn(name = "id_tipo_movimiento_fk")
+    private TipoMovimientoModel tipoMovimiento;
 
     @Column
     private boolean estado;

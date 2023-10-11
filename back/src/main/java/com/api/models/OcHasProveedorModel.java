@@ -14,8 +14,17 @@ public class OcHasProveedorModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private int ocHasProveedor;
+    private Integer idOcHasProveedor;
+
+    @ManyToOne
+    @JoinColumn(name = "id_proveedor_fk")
+    private ProveedorModel proveedor;
+
+    @ManyToOne
+    @JoinColumn(name = "id_orden_compra_fk")
+    private OrdenCompraModel ordenCompra;
 
     @Column
     private boolean estado;
+
 }
