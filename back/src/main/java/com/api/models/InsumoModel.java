@@ -1,18 +1,12 @@
 package com.api.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-
 @Table(name = "insumo")
 public class InsumoModel {
     @Id
@@ -38,4 +32,73 @@ public class InsumoModel {
 
     @Column
     private boolean estado;
+
+    public InsumoModel() {
+    }
+
+    public InsumoModel(Integer idInsumo, String nombreInsumo, EstadoInsumoModel estadoInsumo, List<DetalleOcModel> detallesOc, List<InventarioModel> inventarios, List<HistoricoModel> historicos, boolean estado) {
+        this.idInsumo = idInsumo;
+        this.nombreInsumo = nombreInsumo;
+        this.estadoInsumo = estadoInsumo;
+        this.detallesOc = detallesOc;
+        this.inventarios = inventarios;
+        this.historicos = historicos;
+        this.estado = estado;
+    }
+
+    public Integer getIdInsumo() {
+        return idInsumo;
+    }
+
+    public void setIdInsumo(Integer idInsumo) {
+        this.idInsumo = idInsumo;
+    }
+
+    public String getNombreInsumo() {
+        return nombreInsumo;
+    }
+
+    public void setNombreInsumo(String nombreInsumo) {
+        this.nombreInsumo = nombreInsumo;
+    }
+
+    public EstadoInsumoModel getEstadoInsumo() {
+        return estadoInsumo;
+    }
+
+    public void setEstadoInsumo(EstadoInsumoModel estadoInsumo) {
+        this.estadoInsumo = estadoInsumo;
+    }
+
+    public List<DetalleOcModel> getDetallesOc() {
+        return detallesOc;
+    }
+
+    public void setDetallesOc(List<DetalleOcModel> detallesOc) {
+        this.detallesOc = detallesOc;
+    }
+
+    public List<InventarioModel> getInventarios() {
+        return inventarios;
+    }
+
+    public void setInventarios(List<InventarioModel> inventarios) {
+        this.inventarios = inventarios;
+    }
+
+    public List<HistoricoModel> getHistoricos() {
+        return historicos;
+    }
+
+    public void setHistoricos(List<HistoricoModel> historicos) {
+        this.historicos = historicos;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
 }
