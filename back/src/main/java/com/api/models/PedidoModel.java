@@ -1,19 +1,14 @@
 package com.api.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "pedido")
 public class PedidoModel {
     @Id
@@ -36,6 +31,7 @@ public class PedidoModel {
     private UsuarioModel usuario;
 
     @OneToMany(mappedBy = "pedido")
+    @JsonIgnore
     private List<CalificacionModel> calificaciones;
 
     @OneToMany(mappedBy = "pedido")
