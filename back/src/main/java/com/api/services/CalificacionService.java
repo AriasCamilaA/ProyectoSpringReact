@@ -13,6 +13,7 @@ public class CalificacionService {
     @Autowired
     private CalificacionRepository calificacionRepository;
     public CalificacionModel createCalificacion(CalificacionModel calificacion){
+        calificacion.setEstado(true);
         return calificacionRepository.save(calificacion);
     }
     public CalificacionModel getCalificacionById(Integer id){
