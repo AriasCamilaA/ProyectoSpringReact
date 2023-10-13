@@ -1,17 +1,11 @@
 package com.api.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.List;
-import java.util.Set;
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "estadopedido")
 public class EstadoPedidoModel {
     @Id
@@ -25,7 +19,49 @@ public class EstadoPedidoModel {
     @Column
     private boolean estado;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "estadoPedido")
     private List<PedidoModel> pedidos;
 
+    public EstadoPedidoModel() {
+    }
+
+    public EstadoPedidoModel(Integer idEstadoPedido, String nombreEstado, boolean estado, List<PedidoModel> pedidos) {
+        this.idEstadoPedido = idEstadoPedido;
+        this.nombreEstado = nombreEstado;
+        this.estado = estado;
+        this.pedidos = pedidos;
+    }
+
+    public Integer getIdEstadoPedido() {
+        return idEstadoPedido;
+    }
+
+    public void setIdEstadoPedido(Integer idEstadoPedido) {
+        this.idEstadoPedido = idEstadoPedido;
+    }
+
+    public String getNombreEstado() {
+        return nombreEstado;
+    }
+
+    public void setNombreEstado(String nombreEstado) {
+        this.nombreEstado = nombreEstado;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    public List<PedidoModel> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<PedidoModel> pedidos) {
+        this.pedidos = pedidos;
+    }
 }

@@ -1,16 +1,8 @@
 package com.api.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import java.security.PrivateKey;
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "detalleoc")
 public class DetalleOcModel {
     @Id
@@ -32,4 +24,54 @@ public class DetalleOcModel {
     @Column
     private boolean estado;
 
+    public DetalleOcModel() {
+    }
+
+    public DetalleOcModel(Integer idDetalleOc, int cantidadInsumo, OrdenCompraModel ordenCompra, InsumoModel insumo, boolean estado) {
+        this.idDetalleOc = idDetalleOc;
+        this.cantidadInsumo = cantidadInsumo;
+        this.ordenCompra = ordenCompra;
+        this.insumo = insumo;
+        this.estado = estado;
+    }
+
+    public Integer getIdDetalleOc() {
+        return idDetalleOc;
+    }
+
+    public void setIdDetalleOc(Integer idDetalleOc) {
+        this.idDetalleOc = idDetalleOc;
+    }
+
+    public int getCantidadInsumo() {
+        return cantidadInsumo;
+    }
+
+    public void setCantidadInsumo(int cantidadInsumo) {
+        this.cantidadInsumo = cantidadInsumo;
+    }
+
+    public OrdenCompraModel getOrdenCompra() {
+        return ordenCompra;
+    }
+
+    public void setOrdenCompra(OrdenCompraModel ordenCompra) {
+        this.ordenCompra = ordenCompra;
+    }
+
+    public InsumoModel getInsumo() {
+        return insumo;
+    }
+
+    public void setInsumo(InsumoModel insumo) {
+        this.insumo = insumo;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
 }

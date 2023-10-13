@@ -3,7 +3,6 @@ package com.api.controllers;
 import com.api.models.CalificacionModel;
 import com.api.services.CalificacionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.concurrent.CompletableToListenableFutureAdapter;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,6 +32,4 @@ public class CalificacionController {
     private void deleteCalificacionById(@PathVariable Integer id){
         calificacionService.deleteCalificacionById(id);
     }
-
-
 }
