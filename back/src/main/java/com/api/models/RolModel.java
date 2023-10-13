@@ -1,18 +1,12 @@
 package com.api.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-
 @Table(name = "rol")
 public class RolModel {
     @Id
@@ -32,4 +26,54 @@ public class RolModel {
     @Column
     private boolean estado;
 
+    public RolModel() {
+    }
+
+    public RolModel(Integer idRol, String nombreRol, List<RolHasPermisoModel> rolHasPermisos, List<UsuarioModel> usuarios, boolean estado) {
+        this.idRol = idRol;
+        this.nombreRol = nombreRol;
+        this.rolHasPermisos = rolHasPermisos;
+        this.usuarios = usuarios;
+        this.estado = estado;
+    }
+
+    public Integer getIdRol() {
+        return idRol;
+    }
+
+    public void setIdRol(Integer idRol) {
+        this.idRol = idRol;
+    }
+
+    public String getNombreRol() {
+        return nombreRol;
+    }
+
+    public void setNombreRol(String nombreRol) {
+        this.nombreRol = nombreRol;
+    }
+
+    public List<RolHasPermisoModel> getRolHasPermisos() {
+        return rolHasPermisos;
+    }
+
+    public void setRolHasPermisos(List<RolHasPermisoModel> rolHasPermisos) {
+        this.rolHasPermisos = rolHasPermisos;
+    }
+
+    public List<UsuarioModel> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(List<UsuarioModel> usuarios) {
+        this.usuarios = usuarios;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
 }
