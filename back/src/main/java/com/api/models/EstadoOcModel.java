@@ -1,18 +1,12 @@
 package com.api.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-
 @Table(name = "estado_oc")
 public class EstadoOcModel {
     @Id
@@ -24,9 +18,51 @@ public class EstadoOcModel {
     private  String nombreEstadoOc;
 
     @OneToMany(mappedBy = "estadoOc")
+    @JsonIgnore
     private List<OrdenCompraModel> ordenesCompra;
 
     @Column
     private boolean estado;
 
+    public EstadoOcModel() {
+    }
+
+    public EstadoOcModel(Integer idEstadoOc, String nombreEstadoOc, List<OrdenCompraModel> ordenesCompra, boolean estado) {
+        this.idEstadoOc = idEstadoOc;
+        this.nombreEstadoOc = nombreEstadoOc;
+        this.ordenesCompra = ordenesCompra;
+        this.estado = estado;
+    }
+
+    public Integer getIdEstadoOc() {
+        return idEstadoOc;
+    }
+
+    public void setIdEstadoOc(Integer idEstadoOc) {
+        this.idEstadoOc = idEstadoOc;
+    }
+
+    public String getNombreEstadoOc() {
+        return nombreEstadoOc;
+    }
+
+    public void setNombreEstadoOc(String nombreEstadoOc) {
+        this.nombreEstadoOc = nombreEstadoOc;
+    }
+
+    public List<OrdenCompraModel> getOrdenesCompra() {
+        return ordenesCompra;
+    }
+
+    public void setOrdenesCompra(List<OrdenCompraModel> ordenesCompra) {
+        this.ordenesCompra = ordenesCompra;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
 }

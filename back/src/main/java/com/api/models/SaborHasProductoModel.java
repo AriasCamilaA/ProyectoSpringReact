@@ -1,17 +1,13 @@
 package com.api.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+
 
 import java.util.Set;
 
 @Entity
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-
 @Table(name = "sabor_has_producto")
 public class SaborHasProductoModel {
     @Id
@@ -29,4 +25,46 @@ public class SaborHasProductoModel {
 
     @Column
     private boolean estado;
+
+    public SaborHasProductoModel() {
+    }
+
+    public SaborHasProductoModel(Integer idSaborHasProducto, SaborModel sabor, ProductoModel producto, boolean estado) {
+        this.idSaborHasProducto = idSaborHasProducto;
+        this.sabor = sabor;
+        this.producto = producto;
+        this.estado = estado;
+    }
+
+    public Integer getIdSaborHasProducto() {
+        return idSaborHasProducto;
+    }
+
+    public void setIdSaborHasProducto(Integer idSaborHasProducto) {
+        this.idSaborHasProducto = idSaborHasProducto;
+    }
+
+    public SaborModel getSabor() {
+        return sabor;
+    }
+
+    public void setSabor(SaborModel sabor) {
+        this.sabor = sabor;
+    }
+
+    public ProductoModel getProducto() {
+        return producto;
+    }
+
+    public void setProducto(ProductoModel producto) {
+        this.producto = producto;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
 }

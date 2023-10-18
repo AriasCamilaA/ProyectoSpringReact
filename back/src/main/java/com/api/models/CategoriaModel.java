@@ -1,17 +1,12 @@
 package com.api.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "categoria")
 public class CategoriaModel {
     @Id
@@ -29,6 +24,57 @@ public class CategoriaModel {
     private boolean estado;
 
     @OneToMany(mappedBy = "categoria")
+    @JsonIgnore
     private List<ProductoModel> productos;
 
+    public CategoriaModel() {
+    }
+
+    public CategoriaModel(Integer idCategoria, String nombreCategoria, String descripcionCategoria, boolean estado, List<ProductoModel> productos) {
+        this.idCategoria = idCategoria;
+        this.nombreCategoria = nombreCategoria;
+        this.descripcionCategoria = descripcionCategoria;
+        this.estado = estado;
+        this.productos = productos;
+    }
+
+    public Integer getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(Integer idCategoria) {
+        this.idCategoria = idCategoria;
+    }
+
+    public String getNombreCategoria() {
+        return nombreCategoria;
+    }
+
+    public void setNombreCategoria(String nombreCategoria) {
+        this.nombreCategoria = nombreCategoria;
+    }
+
+    public String getDescripcionCategoria() {
+        return descripcionCategoria;
+    }
+
+    public void setDescripcionCategoria(String descripcionCategoria) {
+        this.descripcionCategoria = descripcionCategoria;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    public List<ProductoModel> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<ProductoModel> productos) {
+        this.productos = productos;
+    }
 }
