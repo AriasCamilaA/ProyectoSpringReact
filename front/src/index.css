@@ -1,13 +1,284 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sofia&family=Taviraj:wght@200&display=swap');
+
+:root {
+    --oscuro: #732F48;
+    --medio: #8C274C;
+    --claro: #F26B9C;
+    --fondo1: #F6E0E3;
+    --fondo2: #FDEBEB;
+    --fondo3: #FDF5E7;
+    --blanco: #ffffff;
+    --gris: #f2f2f2;
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Taviraj', serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1,h2,h3 {
+    font-family: 'Sofia', cursive;
+    color: var(--oscuro);
+    margin-bottom: revert;
+    /* margin: 20px 4px; */
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+input {
+    border: 1px solid var(--oscuro);
+    outline: none;
+}
+
+input:focus {
+    border: 1px solid var(--claro);
+}
+
+footer {
+    background-color: var(--oscuro);
+    color: var(--blanco);
+}
+
+.body {
+    display: flex;
+}
+
+.pagina {
+    width: 100%;
+}
+
+.noOverflow {
+    overflow: hidden;
+}
+
+.contenido {
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 42px;
+    height: calc(100vh - 66px);
+}
+
+/*-------------------------Menu Principal-----------------------------------*/
+.opciones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* max-width: 620px; */
+}
+
+.menuAdmin {
+    max-width: 620px;
+}
+
+.btn_opciones {
+    background-color: var(--fondo2);
+    border-radius: 16px;
+    cursor: pointer;
+    /* padding: 16px; */
+    margin: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+    justify-content: flex-end;
+    /* width: 248px; */
+    /* height: 284px;*/
+}
+
+.btn_opciones a {
+    padding: 16px 16px 0 16px;
+}
+
+.btn_opciones h2 {
+    margin: 4px;
+}
+
+.btn_opciones:hover {
+    background-color: var(--fondo1);
+}
+
+.btn_opciones img {
+    height: 140px;
+}
+
+/*-------------------------------------- Menu Superior ----------------------------------*/
+.menuSuperior, .landingMenu__Superior {
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    display: flex;
+    width: 100%;
+    height: 68px;
+    background-color: var(--oscuro);
+    color: var(--blanco);
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 36px;
+}
+
+.menuSuperior h1 {
+    margin: auto;
+}
+
+.menuSuperior .icon {
+    height: 40px;
+    border-radius: 8px;
+    margin-right: 15px;
+    background-color: var(--fondo1);
+    padding: 4px;
+}
+
+.menuSuperior .icon:hover {
+    background-color: var(--fondo3);
+    cursor: pointer;
+}
+
+.logosMenu {
+    display: flex;
+}
+
+.menu-logo,
+.menu-user {
+    border-radius: 4px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    color: var(--blanco);
+    background-color: transparent;
+    border: none;
+}
+
+.menu-logo{
+    position: absolute;
+    right: calc(50% - 51px);
+}
+
+.menu-user p {
+    margin: auto;
+}
+
+.menu-logo img {
+    height: 72px;
+    border-radius: 50px;
+    margin-right: 15px;
+}
+
+.menu-icon {
+    border-radius: 16px;
+    padding: 16px;
+}
+
+.menu-user:hover,
+.menu-icon:hover,
+.rigth-menu>ul li:hover {
+    text-shadow: 1px 1px 2px var(--fondo1);
+    cursor: pointer;
+}
+
+.nav-landing{
+    position: initial;
+}
+
+/* Opciones del usuario */
+.user-dropdown {
+    background: var(--oscuro);
+    width: -webkit-fill-available;
+}
+
+.user-dropdown a {
+    color: var(--blanco);
+}
+
+.user-dropdown a:hover {
+    text-shadow: 1px 1px 2px var(--fondo1);
+    cursor: pointer;
+    background: var(--oscuro);
+    color: var(--blanco);
+}
+
+/*-------------------------------------- Menu lateral ----------------------------------*/
+.menuLateral {
+    z-index: 10;
+    background-color: var(--oscuro);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200px;
+    top: 68px;
+    height: calc(100vh - 68px);
+    transform: translateX(-100%);
+    transition: .4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.menuLateral__Opcion{
+    display: flex;
+    align-items: center;
+}
+
+.menuLateral__Opcion * {
+    margin-left: 8px;
+}
+
+.menuLateral img {
+    height: 40px;
+    width: 40px;
+}
+
+.menuLateral a {
+    font-weight: bold;
+    color: var(--blanco);
+    padding: 16px;
+    width: -webkit-fill-available;
+    text-decoration: none;
+}
+
+.menuLateral a:hover {
+    background: var(--fondo1);
+    color: var(--oscuro);
+}
+
+#menuHam {
+    display: none;
+}
+
+#menuHam:checked~.menuLateral {
+    transform:translateX(0);
+}
+
+/* ------------------Scroll bar------------------- */
+::-webkit-scrollbar {
+    width: 4px;
+}
+ 
+::-webkit-scrollbar-track {
+    background-color: var(--fondo1);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: var(--oscuro); 
 }
