@@ -1,18 +1,14 @@
 package com.api.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.List;
 import java.util.Set;
 
 @Entity
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-
 @Table(name = "tipo_movimiento")
 public class TipoMovimientoModel {
     @Id
@@ -27,6 +23,48 @@ public class TipoMovimientoModel {
     private boolean estado;
 
     @OneToMany(mappedBy = "tipoMovimiento")
+    @JsonIgnore
     private List<HistoricoModel> historicos;
 
+    public TipoMovimientoModel() {
+    }
+
+    public TipoMovimientoModel(int idTipoMovimiento, String nombreTipoMovimiento, boolean estado, List<HistoricoModel> historicos) {
+        this.idTipoMovimiento = idTipoMovimiento;
+        this.nombreTipoMovimiento = nombreTipoMovimiento;
+        this.estado = estado;
+        this.historicos = historicos;
+    }
+
+    public int getIdTipoMovimiento() {
+        return idTipoMovimiento;
+    }
+
+    public void setIdTipoMovimiento(int idTipoMovimiento) {
+        this.idTipoMovimiento = idTipoMovimiento;
+    }
+
+    public String getNombreTipoMovimiento() {
+        return nombreTipoMovimiento;
+    }
+
+    public void setNombreTipoMovimiento(String nombreTipoMovimiento) {
+        this.nombreTipoMovimiento = nombreTipoMovimiento;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    public List<HistoricoModel> getHistoricos() {
+        return historicos;
+    }
+
+    public void setHistoricos(List<HistoricoModel> historicos) {
+        this.historicos = historicos;
+    }
 }

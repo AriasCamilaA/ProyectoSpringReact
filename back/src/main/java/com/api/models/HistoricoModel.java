@@ -1,16 +1,12 @@
 package com.api.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
 @Entity
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "historico")
 public class HistoricoModel {
     @Id
@@ -44,4 +40,91 @@ public class HistoricoModel {
 
     @Column
     private boolean estado;
+
+    public HistoricoModel() {
+    }
+
+    public HistoricoModel(Integer idHistorico, LocalDate fechaMovimiento, LocalDate fechaCaducidad, int cantidadHistorico, String tipoHistorico, InsumoModel insumo, ProductoModel producto, TipoMovimientoModel tipoMovimiento, boolean estado) {
+        this.idHistorico = idHistorico;
+        this.fechaMovimiento = fechaMovimiento;
+        this.fechaCaducidad = fechaCaducidad;
+        this.cantidadHistorico = cantidadHistorico;
+        this.tipoHistorico = tipoHistorico;
+        this.insumo = insumo;
+        this.producto = producto;
+        this.tipoMovimiento = tipoMovimiento;
+        this.estado = estado;
+    }
+
+    public Integer getIdHistorico() {
+        return idHistorico;
+    }
+
+    public void setIdHistorico(Integer idHistorico) {
+        this.idHistorico = idHistorico;
+    }
+
+    public LocalDate getFechaMovimiento() {
+        return fechaMovimiento;
+    }
+
+    public void setFechaMovimiento(LocalDate fechaMovimiento) {
+        this.fechaMovimiento = fechaMovimiento;
+    }
+
+    public LocalDate getFechaCaducidad() {
+        return fechaCaducidad;
+    }
+
+    public void setFechaCaducidad(LocalDate fechaCaducidad) {
+        this.fechaCaducidad = fechaCaducidad;
+    }
+
+    public int getCantidadHistorico() {
+        return cantidadHistorico;
+    }
+
+    public void setCantidadHistorico(int cantidadHistorico) {
+        this.cantidadHistorico = cantidadHistorico;
+    }
+
+    public String getTipoHistorico() {
+        return tipoHistorico;
+    }
+
+    public void setTipoHistorico(String tipoHistorico) {
+        this.tipoHistorico = tipoHistorico;
+    }
+
+    public InsumoModel getInsumo() {
+        return insumo;
+    }
+
+    public void setInsumo(InsumoModel insumo) {
+        this.insumo = insumo;
+    }
+
+    public ProductoModel getProducto() {
+        return producto;
+    }
+
+    public void setProducto(ProductoModel producto) {
+        this.producto = producto;
+    }
+
+    public TipoMovimientoModel getTipoMovimiento() {
+        return tipoMovimiento;
+    }
+
+    public void setTipoMovimiento(TipoMovimientoModel tipoMovimiento) {
+        this.tipoMovimiento = tipoMovimiento;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
 }

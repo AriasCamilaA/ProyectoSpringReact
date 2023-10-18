@@ -1,17 +1,12 @@
 package com.api.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.Set;
 
 @Entity
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-
 @Table(name = "rol_has_permiso")
 public class RolHasPermisoModel {
     @Id
@@ -29,4 +24,46 @@ public class RolHasPermisoModel {
 
     @Column
     private boolean estado;
+
+    public RolHasPermisoModel() {
+    }
+
+    public RolHasPermisoModel(Integer idRolHasPermiso, RolModel rol, PermisoModel permiso, boolean estado) {
+        this.idRolHasPermiso = idRolHasPermiso;
+        this.rol = rol;
+        this.permiso = permiso;
+        this.estado = estado;
+    }
+
+    public Integer getIdRolHasPermiso() {
+        return idRolHasPermiso;
+    }
+
+    public void setIdRolHasPermiso(Integer idRolHasPermiso) {
+        this.idRolHasPermiso = idRolHasPermiso;
+    }
+
+    public RolModel getRol() {
+        return rol;
+    }
+
+    public void setRol(RolModel rol) {
+        this.rol = rol;
+    }
+
+    public PermisoModel getPermiso() {
+        return permiso;
+    }
+
+    public void setPermiso(PermisoModel permiso) {
+        this.permiso = permiso;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
 }
