@@ -12,10 +12,10 @@ public class ProductoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Integer idProducto;
+    private Long idProducto;
 
     @Column
-    private int precioProducto;
+    private Long precioProducto;
 
     @Column
     private String imagenProducto;
@@ -46,7 +46,7 @@ public class ProductoModel {
     public ProductoModel() {
     }
 
-    public ProductoModel(Integer idProducto, int precioProducto, String imagenProducto, List<DetalleVentaModel> detalleVentas, List<InventarioModel> inventarios, List<SaborHasProductoModel> saborHasProductos, List<HistoricoModel> historicos, CategoriaModel categoria, boolean estado) {
+    public ProductoModel(Long idProducto, Long precioProducto, String imagenProducto, List<DetalleVentaModel> detalleVentas, List<InventarioModel> inventarios, List<SaborHasProductoModel> saborHasProductos, List<HistoricoModel> historicos, CategoriaModel categoria, boolean estado) {
         this.idProducto = idProducto;
         this.precioProducto = precioProducto;
         this.imagenProducto = imagenProducto;
@@ -58,19 +58,19 @@ public class ProductoModel {
         this.estado = estado;
     }
 
-    public Integer getIdProducto() {
+    public Long getIdProducto() {
         return idProducto;
     }
 
-    public void setIdProducto(Integer idProducto) {
+    public void setIdProducto(Long idProducto) {
         this.idProducto = idProducto;
     }
 
-    public int getPrecioProducto() {
+    public Long getPrecioProducto() {
         return precioProducto;
     }
 
-    public void setPrecioProducto(int precioProducto) {
+    public void setPrecioProducto(Long precioProducto) {
         this.precioProducto = precioProducto;
     }
 

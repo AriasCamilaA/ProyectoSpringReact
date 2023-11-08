@@ -6,7 +6,6 @@ import lombok.Data;
 
 
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data
@@ -15,7 +14,7 @@ public class PermisoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Integer idPermiso;
+    private Long idPermiso;
 
     @Column
     private String descripcionPermiso;
@@ -30,18 +29,18 @@ public class PermisoModel {
     public PermisoModel() {
     }
 
-    public PermisoModel(Integer idPermiso, String descripcionPermiso, List<RolHasPermisoModel> rolHasPermisos, boolean estado) {
+    public PermisoModel(Long idPermiso, String descripcionPermiso, List<RolHasPermisoModel> rolHasPermisos, boolean estado) {
         this.idPermiso = idPermiso;
         this.descripcionPermiso = descripcionPermiso;
         RolHasPermisos = rolHasPermisos;
         this.estado = estado;
     }
 
-    public Integer getIdPermiso() {
+    public Long getIdPermiso() {
         return idPermiso;
     }
 
-    public void setIdPermiso(Integer idPermiso) {
+    public void setIdPermiso(Long idPermiso) {
         this.idPermiso = idPermiso;
     }
 

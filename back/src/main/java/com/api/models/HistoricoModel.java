@@ -12,7 +12,7 @@ public class HistoricoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Integer idHistorico;
+    private Long idHistorico;
 
     @Column
     private LocalDate fechaMovimiento;
@@ -21,7 +21,7 @@ public class HistoricoModel {
     private LocalDate fechaCaducidad;
 
     @Column
-    private int cantidadHistorico;
+    private Long cantidadHistorico;
 
     @Column
     private String tipoHistorico;
@@ -44,7 +44,7 @@ public class HistoricoModel {
     public HistoricoModel() {
     }
 
-    public HistoricoModel(Integer idHistorico, LocalDate fechaMovimiento, LocalDate fechaCaducidad, int cantidadHistorico, String tipoHistorico, InsumoModel insumo, ProductoModel producto, TipoMovimientoModel tipoMovimiento, boolean estado) {
+    public HistoricoModel(Long idHistorico, LocalDate fechaMovimiento, LocalDate fechaCaducidad, Long cantidadHistorico, String tipoHistorico, InsumoModel insumo, ProductoModel producto, TipoMovimientoModel tipoMovimiento, boolean estado) {
         this.idHistorico = idHistorico;
         this.fechaMovimiento = fechaMovimiento;
         this.fechaCaducidad = fechaCaducidad;
@@ -56,11 +56,11 @@ public class HistoricoModel {
         this.estado = estado;
     }
 
-    public Integer getIdHistorico() {
+    public Long getIdHistorico() {
         return idHistorico;
     }
 
-    public void setIdHistorico(Integer idHistorico) {
+    public void setIdHistorico(Long idHistorico) {
         this.idHistorico = idHistorico;
     }
 
@@ -80,11 +80,11 @@ public class HistoricoModel {
         this.fechaCaducidad = fechaCaducidad;
     }
 
-    public int getCantidadHistorico() {
+    public Long getCantidadHistorico() {
         return cantidadHistorico;
     }
 
-    public void setCantidadHistorico(int cantidadHistorico) {
+    public void setCantidadHistorico(Long cantidadHistorico) {
         this.cantidadHistorico = cantidadHistorico;
     }
 

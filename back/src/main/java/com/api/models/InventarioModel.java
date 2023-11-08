@@ -3,7 +3,6 @@ package com.api.models;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.List;
 
 @Entity
 @Data
@@ -13,10 +12,10 @@ public class InventarioModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Integer idInventario;
+    private Long idInventario;
 
     @Column
-    private int stockInventario;
+    private Long stockInventario;
 
     @Column
     private String tipoInventario;
@@ -35,7 +34,7 @@ public class InventarioModel {
     public InventarioModel() {
     }
 
-    public InventarioModel(Integer idInventario, int stockInventario, String tipoInventario, InsumoModel insumo, ProductoModel producto, boolean estado) {
+    public InventarioModel(Long idInventario, Long stockInventario, String tipoInventario, InsumoModel insumo, ProductoModel producto, boolean estado) {
         this.idInventario = idInventario;
         this.stockInventario = stockInventario;
         this.tipoInventario = tipoInventario;
@@ -44,19 +43,19 @@ public class InventarioModel {
         this.estado = estado;
     }
 
-    public Integer getIdInventario() {
+    public Long getIdInventario() {
         return idInventario;
     }
 
-    public void setIdInventario(Integer idInventario) {
+    public void setIdInventario(Long idInventario) {
         this.idInventario = idInventario;
     }
 
-    public int getStockInventario() {
+    public Long getStockInventario() {
         return stockInventario;
     }
 
-    public void setStockInventario(int stockInventario) {
+    public void setStockInventario(Long stockInventario) {
         this.stockInventario = stockInventario;
     }
 

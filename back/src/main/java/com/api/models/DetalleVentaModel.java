@@ -3,8 +3,6 @@ package com.api.models;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.Set;
-
 @Entity
 @Data
 @Table(name = "detalle_venta")
@@ -12,10 +10,10 @@ public class DetalleVentaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Integer idDetalleVenta;
+    private Long idDetalleVenta;
 
     @Column
-    private int cantidadProducto;
+    private Long cantidadProducto;
 
     @Column
     private Long subtotalDetalleVenta;
@@ -34,7 +32,7 @@ public class DetalleVentaModel {
     public DetalleVentaModel() {
     }
 
-    public DetalleVentaModel(Integer idDetalleVenta, int cantidadProducto, Long subtotalDetalleVenta, ProductoModel producto, VentaModel venta, boolean estado) {
+    public DetalleVentaModel(Long idDetalleVenta, Long cantidadProducto, Long subtotalDetalleVenta, ProductoModel producto, VentaModel venta, boolean estado) {
         this.idDetalleVenta = idDetalleVenta;
         this.cantidadProducto = cantidadProducto;
         this.subtotalDetalleVenta = subtotalDetalleVenta;
@@ -43,19 +41,19 @@ public class DetalleVentaModel {
         this.estado = estado;
     }
 
-    public Integer getIdDetalleVenta() {
+    public Long getIdDetalleVenta() {
         return idDetalleVenta;
     }
 
-    public void setIdDetalleVenta(Integer idDetalleVenta) {
+    public void setIdDetalleVenta(Long idDetalleVenta) {
         this.idDetalleVenta = idDetalleVenta;
     }
 
-    public int getCantidadProducto() {
+    public Long getCantidadProducto() {
         return cantidadProducto;
     }
 
-    public void setCantidadProducto(int cantidadProducto) {
+    public void setCantidadProducto(Long cantidadProducto) {
         this.cantidadProducto = cantidadProducto;
     }
 

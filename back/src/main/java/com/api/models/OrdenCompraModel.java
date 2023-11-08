@@ -15,7 +15,7 @@ public class OrdenCompraModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Integer idOrdenCompra;
+    private Long idOc;
 
     @Column
     private LocalDate fechaOC;
@@ -38,8 +38,8 @@ public class OrdenCompraModel {
     public OrdenCompraModel() {
     }
 
-    public OrdenCompraModel(Integer idOrdenCompra, LocalDate fechaOC, EstadoOcModel estadoOc, List<DetalleOcModel> detallesOc, List<OcHasProveedorModel> ocHasProveedores, boolean estado) {
-        this.idOrdenCompra = idOrdenCompra;
+    public OrdenCompraModel(Long idOrdenCompra, LocalDate fechaOC, EstadoOcModel estadoOc, List<DetalleOcModel> detallesOc, List<OcHasProveedorModel> ocHasProveedores, boolean estado) {
+        this.idOc = idOrdenCompra;
         this.fechaOC = fechaOC;
         this.estadoOc = estadoOc;
         this.detallesOc = detallesOc;
@@ -47,12 +47,12 @@ public class OrdenCompraModel {
         this.estado = estado;
     }
 
-    public Integer getIdOrdenCompra() {
-        return idOrdenCompra;
+    public Long getIdOc() {
+        return idOc;
     }
 
-    public void setIdOrdenCompra(Integer idOrdenCompra) {
-        this.idOrdenCompra = idOrdenCompra;
+    public void setIdOc(Long idOc) {
+        this.idOc = idOc;
     }
 
     public LocalDate getFechaOC() {

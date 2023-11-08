@@ -13,7 +13,7 @@ public class ProveedorModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Integer idProveedor;
+    private Long idProveedor;
 
     @Column
     private boolean estadoProveedor;
@@ -31,10 +31,10 @@ public class ProveedorModel {
     private Long nitProveedor;
 
     @Column
-    private int celularProveedor;
+    private Long celularProveedor;
 
     @Column
-    private int celularRespaldoProveedor;
+    private Long celularRespaldoProveedor;
 
     @OneToMany(mappedBy = "proveedor")
     @JsonIgnore
@@ -50,7 +50,7 @@ public class ProveedorModel {
     public ProveedorModel() {
     }
 
-    public ProveedorModel(Integer idProveedor, String empresaProveedor, String nombreProveedor, String correoProveedor, Long nitProveedor, int celularProveedor, int celularRespaldoProveedor) {
+    public ProveedorModel(Long idProveedor, String empresaProveedor, String nombreProveedor, String correoProveedor, Long nitProveedor, Long celularProveedor, Long celularRespaldoProveedor) {
         this.idProveedor = idProveedor;
         this.empresaProveedor = empresaProveedor;
         this.nombreProveedor = nombreProveedor;
@@ -62,11 +62,11 @@ public class ProveedorModel {
         this.estado = true;
     }
 
-    public Integer getIdProveedor() {
+    public Long getIdProveedor() {
         return idProveedor;
     }
 
-    public void setIdProveedor(Integer idProveedor) {
+    public void setIdProveedor(Long idProveedor) {
         this.idProveedor = idProveedor;
     }
 
@@ -110,19 +110,19 @@ public class ProveedorModel {
         this.nitProveedor = nitProveedor;
     }
 
-    public int getCelularProveedor() {
+    public Long getCelularProveedor() {
         return celularProveedor;
     }
 
-    public void setCelularProveedor(int celularProveedor) {
+    public void setCelularProveedor(Long celularProveedor) {
         this.celularProveedor = celularProveedor;
     }
 
-    public int getCelularRespaldoProveedor() {
+    public Long getCelularRespaldoProveedor() {
         return celularRespaldoProveedor;
     }
 
-    public void setCelularRespaldoProveedor(int celularRespaldoProveedor) {
+    public void setCelularRespaldoProveedor(Long celularRespaldoProveedor) {
         this.celularRespaldoProveedor = celularRespaldoProveedor;
     }
 

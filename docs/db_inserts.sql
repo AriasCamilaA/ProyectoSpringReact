@@ -322,7 +322,7 @@ INSERT INTO Usuario (no_Documento_Usuario, email, password, celular_Usuario, nom
   (4567890128, 'Ibarra_Montoya@example.com', '$2y$10$6gpwlik9Y/ZClXDTVk3N6uJTsV4B9P1abA2Z1Kzjny/O3DiA8jfty', 4567890128, 'Natalia Valentina', 'Ibarra Montoya', 2),
   (5678901239, 'Montoya_Valencia@example.com', '$2y$10$6gpwlik9Y/ZClXDTVk3N6uJTsV4B9P1abA2Z1Kzjny/O3DiA8jfty', 5678901239, 'Felipe Juan', 'Montoya Valencia', 2);
   
-INSERT INTO EstadoPedido(id_Estado_Pedido, nombre_Estado) VALUES
+INSERT INTO Estado_Pedido(id_Estado_Pedido, nombre_Estado) VALUES
   ('1', 'Por Arpobar'),
   ('2', 'Aprobado'),
   ('3', 'Preparándose'),
@@ -391,7 +391,7 @@ INSERT INTO estado_oc (id_estado_oc, nombre_estado_oc) VALUES
   (1, 'Solicitada'),
   (2, 'Finalizada');
   
-INSERT INTO Orden_Compra (id_Orden_Compra, fecha_oc, hora_oc, id_Estado_oc_FK) VALUES
+INSERT INTO Orden_Compra (id_oc, fecha_oc, hora_oc, id_Estado_oc_FK) VALUES
   (1, '2023-05-31', '10:00:00', 1),
   (2, '2023-05-31', '11:30:00', 2),
   (3, '2023-06-01', '09:45:00', 1),
@@ -413,7 +413,7 @@ INSERT INTO Orden_Compra (id_Orden_Compra, fecha_oc, hora_oc, id_Estado_oc_FK) V
   (19, '2023-06-15', '11:45:00', 1),
   (20, '2023-06-16', '15:15:00', 2);
 
-INSERT INTO DetalleOC (id_Detalle_OC, cantidad_insumo, id_Insumo_FK, id_Orden_Compra_FK) VALUES
+INSERT INTO Detalle_OC (id_Detalle_OC, cantidad_insumo, id_Insumo_FK, id_oc_FK) VALUES
   (1, 5, 1, 1),
   (2, 3, 2, 1),
   (3, 2, 3, 1),
@@ -566,7 +566,7 @@ INSERT INTO Venta (fecha_Venta, hora_venta, total_Venta, no_Documento_Usuario_FK
   ('2023-06-12', '16:10:00' , 215000, 3456789012),
   ('2023-06-12', '17:25:00', 32000, 3456789012);
   
-INSERT INTO oc_has_proveedor (id_orden_compra_fk, id_proveedor_fk) VALUES
+INSERT INTO oc_has_proveedor (id_oc_fk, id_proveedor_fk) VALUES
   (13, 1),
   (7, 2),
   (5, 3),

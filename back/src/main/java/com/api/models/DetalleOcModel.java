@@ -3,18 +3,18 @@ package com.api.models;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "detalleoc")
+@Table(name = "detalle_oc")
 public class DetalleOcModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Integer idDetalleOc;
+    private Long idDetalleOc;
 
     @Column
-    private int cantidadInsumo;
+    private Long cantidadInsumo;
 
     @ManyToOne
-    @JoinColumn(name = "id_orden_compra_fk")
+    @JoinColumn(name = "id_oc_fk")
     private OrdenCompraModel ordenCompra;
 
     @ManyToOne
@@ -27,7 +27,7 @@ public class DetalleOcModel {
     public DetalleOcModel() {
     }
 
-    public DetalleOcModel(Integer idDetalleOc, int cantidadInsumo, OrdenCompraModel ordenCompra, InsumoModel insumo, boolean estado) {
+    public DetalleOcModel(Long idDetalleOc, Long cantidadInsumo, OrdenCompraModel ordenCompra, InsumoModel insumo, boolean estado) {
         this.idDetalleOc = idDetalleOc;
         this.cantidadInsumo = cantidadInsumo;
         this.ordenCompra = ordenCompra;
@@ -35,19 +35,19 @@ public class DetalleOcModel {
         this.estado = estado;
     }
 
-    public Integer getIdDetalleOc() {
+    public Long getIdDetalleOc() {
         return idDetalleOc;
     }
 
-    public void setIdDetalleOc(Integer idDetalleOc) {
+    public void setIdDetalleOc(Long idDetalleOc) {
         this.idDetalleOc = idDetalleOc;
     }
 
-    public int getCantidadInsumo() {
+    public Long getCantidadInsumo() {
         return cantidadInsumo;
     }
 
-    public void setCantidadInsumo(int cantidadInsumo) {
+    public void setCantidadInsumo(Long cantidadInsumo) {
         this.cantidadInsumo = cantidadInsumo;
     }
 

@@ -11,7 +11,7 @@ public class UsuarioModel {
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    @Column
-   private Integer noDocumentoUsuario;
+   private Long noDocumentoUsuario;
 
    @Column
    private String email;
@@ -20,13 +20,13 @@ public class UsuarioModel {
    private String password;
 
    @Column
-   private int celularUsuario;
+   private Long celularUsuario;
 
    @Column
    private String nombreUsuario;
 
    @Column
-   private int apellidoUsuario;
+   private String apellidoUsuario;
 
    @ManyToOne
    @JoinColumn(name = "id_rol_fk")
@@ -38,7 +38,7 @@ public class UsuarioModel {
    public UsuarioModel() {
    }
 
-   public UsuarioModel(Integer noDocumentoUsuario, String email, String password, int celularUsuario, String nombreUsuario, int apellidoUsuario, RolModel rol, boolean estado) {
+   public UsuarioModel(Long noDocumentoUsuario, String email, String password, Long celularUsuario, String nombreUsuario, String apellidoUsuario, RolModel rol, boolean estado) {
       this.noDocumentoUsuario = noDocumentoUsuario;
       this.email = email;
       this.password = password;
@@ -49,11 +49,11 @@ public class UsuarioModel {
       this.estado = estado;
    }
 
-   public Integer getNoDocumentoUsuario() {
+   public Long getNoDocumentoUsuario() {
       return noDocumentoUsuario;
    }
 
-   public void setNoDocumentoUsuario(Integer noDocumentoUsuario) {
+   public void setNoDocumentoUsuario(Long noDocumentoUsuario) {
       this.noDocumentoUsuario = noDocumentoUsuario;
    }
 
@@ -73,11 +73,11 @@ public class UsuarioModel {
       this.password = password;
    }
 
-   public int getCelularUsuario() {
+   public Long getCelularUsuario() {
       return celularUsuario;
    }
 
-   public void setCelularUsuario(int celularUsuario) {
+   public void setCelularUsuario(Long celularUsuario) {
       this.celularUsuario = celularUsuario;
    }
 
@@ -89,11 +89,11 @@ public class UsuarioModel {
       this.nombreUsuario = nombreUsuario;
    }
 
-   public int getApellidoUsuario() {
+   public String getApellidoUsuario() {
       return apellidoUsuario;
    }
 
-   public void setApellidoUsuario(int apellidoUsuario) {
+   public void setApellidoUsuario(String apellidoUsuario) {
       this.apellidoUsuario = apellidoUsuario;
    }
 

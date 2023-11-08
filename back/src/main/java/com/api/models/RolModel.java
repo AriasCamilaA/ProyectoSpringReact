@@ -12,7 +12,7 @@ public class RolModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Integer idRol;
+    private Long idRol;
 
     @Column
     private String nombreRol;
@@ -29,7 +29,7 @@ public class RolModel {
     public RolModel() {
     }
 
-    public RolModel(Integer idRol, String nombreRol, List<RolHasPermisoModel> rolHasPermisos, List<UsuarioModel> usuarios, boolean estado) {
+    public RolModel(Long idRol, String nombreRol, List<RolHasPermisoModel> rolHasPermisos, List<UsuarioModel> usuarios, boolean estado) {
         this.idRol = idRol;
         this.nombreRol = nombreRol;
         this.rolHasPermisos = rolHasPermisos;
@@ -37,11 +37,11 @@ public class RolModel {
         this.estado = estado;
     }
 
-    public Integer getIdRol() {
+    public Long getIdRol() {
         return idRol;
     }
 
-    public void setIdRol(Integer idRol) {
+    public void setIdRol(Long idRol) {
         this.idRol = idRol;
     }
 

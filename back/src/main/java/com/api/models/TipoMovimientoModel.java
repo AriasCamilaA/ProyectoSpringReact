@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data
@@ -14,7 +13,7 @@ public class TipoMovimientoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private int idTipoMovimiento;
+    private Long idTipoMovimiento;
 
     @Column
     private String nombreTipoMovimiento;
@@ -29,18 +28,18 @@ public class TipoMovimientoModel {
     public TipoMovimientoModel() {
     }
 
-    public TipoMovimientoModel(int idTipoMovimiento, String nombreTipoMovimiento, boolean estado, List<HistoricoModel> historicos) {
+    public TipoMovimientoModel(Long idTipoMovimiento, String nombreTipoMovimiento, boolean estado, List<HistoricoModel> historicos) {
         this.idTipoMovimiento = idTipoMovimiento;
         this.nombreTipoMovimiento = nombreTipoMovimiento;
         this.estado = estado;
         this.historicos = historicos;
     }
 
-    public int getIdTipoMovimiento() {
+    public Long getIdTipoMovimiento() {
         return idTipoMovimiento;
     }
 
-    public void setIdTipoMovimiento(int idTipoMovimiento) {
+    public void setIdTipoMovimiento(Long idTipoMovimiento) {
         this.idTipoMovimiento = idTipoMovimiento;
     }
 

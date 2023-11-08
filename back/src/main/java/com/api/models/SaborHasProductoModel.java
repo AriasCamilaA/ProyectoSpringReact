@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 
-import java.util.Set;
 
 @Entity
 @Data
@@ -13,7 +12,7 @@ public class SaborHasProductoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Integer idSaborHasProducto;
+    private Long idSaborHasProducto;
 
     @ManyToOne
     @JoinColumn(name = "id_sabor_fk")
@@ -29,18 +28,18 @@ public class SaborHasProductoModel {
     public SaborHasProductoModel() {
     }
 
-    public SaborHasProductoModel(Integer idSaborHasProducto, SaborModel sabor, ProductoModel producto, boolean estado) {
+    public SaborHasProductoModel(Long idSaborHasProducto, SaborModel sabor, ProductoModel producto, boolean estado) {
         this.idSaborHasProducto = idSaborHasProducto;
         this.sabor = sabor;
         this.producto = producto;
         this.estado = estado;
     }
 
-    public Integer getIdSaborHasProducto() {
+    public Long getIdSaborHasProducto() {
         return idSaborHasProducto;
     }
 
-    public void setIdSaborHasProducto(Integer idSaborHasProducto) {
+    public void setIdSaborHasProducto(Long idSaborHasProducto) {
         this.idSaborHasProducto = idSaborHasProducto;
     }
 

@@ -3,7 +3,6 @@ package com.api.models;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.Set;
 
 @Entity
 @Data
@@ -12,7 +11,7 @@ public class RolHasPermisoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Integer idRolHasPermiso;
+    private Long idRolHasPermiso;
 
     @ManyToOne
     @JoinColumn(name = "id_rol_fk")
@@ -28,18 +27,18 @@ public class RolHasPermisoModel {
     public RolHasPermisoModel() {
     }
 
-    public RolHasPermisoModel(Integer idRolHasPermiso, RolModel rol, PermisoModel permiso, boolean estado) {
+    public RolHasPermisoModel(Long idRolHasPermiso, RolModel rol, PermisoModel permiso, boolean estado) {
         this.idRolHasPermiso = idRolHasPermiso;
         this.rol = rol;
         this.permiso = permiso;
         this.estado = estado;
     }
 
-    public Integer getIdRolHasPermiso() {
+    public Long getIdRolHasPermiso() {
         return idRolHasPermiso;
     }
 
-    public void setIdRolHasPermiso(Integer idRolHasPermiso) {
+    public void setIdRolHasPermiso(Long idRolHasPermiso) {
         this.idRolHasPermiso = idRolHasPermiso;
     }
 

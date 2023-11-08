@@ -9,7 +9,7 @@ public class OcHasProveedorModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Integer idOcHasProveedor;
+    private Long idOcHasProveedor;
 
     @ManyToOne
     @JoinColumn(name = "id_proveedor_fk")
@@ -25,18 +25,18 @@ public class OcHasProveedorModel {
     public OcHasProveedorModel() {
     }
 
-    public OcHasProveedorModel(Integer idOcHasProveedor, ProveedorModel proveedor, OrdenCompraModel ordenCompra, boolean estado) {
+    public OcHasProveedorModel(Long idOcHasProveedor, ProveedorModel proveedor, OrdenCompraModel ordenCompra, boolean estado) {
         this.idOcHasProveedor = idOcHasProveedor;
         this.proveedor = proveedor;
         this.ordenCompra = ordenCompra;
         this.estado = estado;
     }
 
-    public Integer getIdOcHasProveedor() {
+    public Long getIdOcHasProveedor() {
         return idOcHasProveedor;
     }
 
-    public void setIdOcHasProveedor(Integer idOcHasProveedor) {
+    public void setIdOcHasProveedor(Long idOcHasProveedor) {
         this.idOcHasProveedor = idOcHasProveedor;
     }
 

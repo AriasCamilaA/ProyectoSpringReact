@@ -8,7 +8,6 @@ import lombok.Data;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data
@@ -17,13 +16,13 @@ public class VentaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Integer idVenta;
+    private Long idVenta;
     
     @Column
     private LocalDate fechaVenta;
 
     @Column
-    private LocalTime horaventa;
+    private LocalTime horaVenta;
 
     @Column
     private Long totalVenta;
@@ -46,10 +45,10 @@ public class VentaModel {
     public VentaModel() {
     }
 
-    public VentaModel(Integer idVenta, LocalDate fechaVenta, LocalTime horaventa, Long totalVenta, PedidoModel pedido, UsuarioModel usuario, List<DetalleVentaModel> detallesVenta, boolean estado) {
+    public VentaModel(Long idVenta, LocalDate fechaVenta, LocalTime horaventa, Long totalVenta, PedidoModel pedido, UsuarioModel usuario, List<DetalleVentaModel> detallesVenta, boolean estado) {
         this.idVenta = idVenta;
         this.fechaVenta = fechaVenta;
-        this.horaventa = horaventa;
+        this.horaVenta = horaventa;
         this.totalVenta = totalVenta;
         this.pedido = pedido;
         this.usuario = usuario;
@@ -57,11 +56,11 @@ public class VentaModel {
         this.estado = estado;
     }
 
-    public Integer getIdVenta() {
+    public Long getIdVenta() {
         return idVenta;
     }
 
-    public void setIdVenta(Integer idVenta) {
+    public void setIdVenta(Long idVenta) {
         this.idVenta = idVenta;
     }
 
@@ -73,12 +72,12 @@ public class VentaModel {
         this.fechaVenta = fechaVenta;
     }
 
-    public LocalTime getHoraventa() {
-        return horaventa;
+    public LocalTime getHoraVenta() {
+        return horaVenta;
     }
 
-    public void setHoraventa(LocalTime horaventa) {
-        this.horaventa = horaventa;
+    public void setHoraVenta(LocalTime horaventa) {
+        this.horaVenta = horaventa;
     }
 
     public Long getTotalVenta() {

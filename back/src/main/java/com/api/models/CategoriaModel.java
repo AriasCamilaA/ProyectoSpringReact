@@ -12,7 +12,7 @@ public class CategoriaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Integer idCategoria;
+    private Long idCategoria;
 
     @Column
     private String nombreCategoria;
@@ -30,7 +30,7 @@ public class CategoriaModel {
     public CategoriaModel() {
     }
 
-    public CategoriaModel(Integer idCategoria, String nombreCategoria, String descripcionCategoria, boolean estado, List<ProductoModel> productos) {
+    public CategoriaModel(Long idCategoria, String nombreCategoria, String descripcionCategoria, boolean estado, List<ProductoModel> productos) {
         this.idCategoria = idCategoria;
         this.nombreCategoria = nombreCategoria;
         this.descripcionCategoria = descripcionCategoria;
@@ -38,11 +38,11 @@ public class CategoriaModel {
         this.productos = productos;
     }
 
-    public Integer getIdCategoria() {
+    public Long getIdCategoria() {
         return idCategoria;
     }
 
-    public void setIdCategoria(Integer idCategoria) {
+    public void setIdCategoria(Long idCategoria) {
         this.idCategoria = idCategoria;
     }
 

@@ -12,7 +12,7 @@ public class InsumoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Integer idInsumo;
+    private Long idInsumo;
 
     @Column
     private String nombreInsumo;
@@ -36,7 +36,7 @@ public class InsumoModel {
     public InsumoModel() {
     }
 
-    public InsumoModel(Integer idInsumo, String nombreInsumo, EstadoInsumoModel estadoInsumo, List<DetalleOcModel> detallesOc, List<InventarioModel> inventarios, List<HistoricoModel> historicos, boolean estado) {
+    public InsumoModel(Long idInsumo, String nombreInsumo, EstadoInsumoModel estadoInsumo, List<DetalleOcModel> detallesOc, List<InventarioModel> inventarios, List<HistoricoModel> historicos, boolean estado) {
         this.idInsumo = idInsumo;
         this.nombreInsumo = nombreInsumo;
         this.estadoInsumo = estadoInsumo;
@@ -46,11 +46,11 @@ public class InsumoModel {
         this.estado = estado;
     }
 
-    public Integer getIdInsumo() {
+    public Long getIdInsumo() {
         return idInsumo;
     }
 
-    public void setIdInsumo(Integer idInsumo) {
+    public void setIdInsumo(Long idInsumo) {
         this.idInsumo = idInsumo;
     }
 

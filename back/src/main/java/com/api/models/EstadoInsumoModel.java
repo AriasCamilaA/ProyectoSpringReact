@@ -13,7 +13,7 @@ public class EstadoInsumoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Integer idEstadoInsumo;
+    private Long idEstadoInsumo;
 
     @Column
     private String nombreEstadoInsumo;
@@ -28,18 +28,18 @@ public class EstadoInsumoModel {
     public EstadoInsumoModel() {
     }
 
-    public EstadoInsumoModel(Integer idEstadoInsumo, String nombreEstadoInsumo, List<InsumoModel> insumos, boolean estado) {
+    public EstadoInsumoModel(Long idEstadoInsumo, String nombreEstadoInsumo, List<InsumoModel> insumos, boolean estado) {
         this.idEstadoInsumo = idEstadoInsumo;
         this.nombreEstadoInsumo = nombreEstadoInsumo;
         this.insumos = insumos;
         this.estado = estado;
     }
 
-    public Integer getIdEstadoInsumo() {
+    public Long getIdEstadoInsumo() {
         return idEstadoInsumo;
     }
 
-    public void setIdEstadoInsumo(Integer idEstadoInsumo) {
+    public void setIdEstadoInsumo(Long idEstadoInsumo) {
         this.idEstadoInsumo = idEstadoInsumo;
     }
 

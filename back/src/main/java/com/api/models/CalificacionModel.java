@@ -11,10 +11,10 @@ public class CalificacionModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Integer idCalificacion;
+    private Long idCalificacion;
 
     @Column
-    private int estrallasCalificacion;
+    private Long estrallasCalificacion;
 
     @Column
     private String comentarioCalificacion;
@@ -34,7 +34,7 @@ public class CalificacionModel {
     }
 
 //    Constructor para calificación del proveedor
-    public CalificacionModel(Integer idCalificacion, int estrallasCalificacion, String comentarioCalificacion, ProveedorModel proveedor) {
+    public CalificacionModel(Long idCalificacion, Long estrallasCalificacion, String comentarioCalificacion, ProveedorModel proveedor) {
         this.idCalificacion = idCalificacion;
         this.estrallasCalificacion = estrallasCalificacion;
         this.comentarioCalificacion = comentarioCalificacion;
@@ -43,7 +43,7 @@ public class CalificacionModel {
     }
 
 //    Constructor para calificación del pedido
-    public CalificacionModel(Integer idCalificacion, int estrallasCalificacion, String comentarioCalificacion, PedidoModel pedido) {
+    public CalificacionModel(Long idCalificacion, Long estrallasCalificacion, String comentarioCalificacion, PedidoModel pedido) {
         this.idCalificacion = idCalificacion;
         this.estrallasCalificacion = estrallasCalificacion;
         this.comentarioCalificacion = comentarioCalificacion;
@@ -51,19 +51,19 @@ public class CalificacionModel {
         this.estado = true;
     }
 
-    public Integer getIdCalificacion() {
+    public Long getIdCalificacion() {
         return idCalificacion;
     }
 
-    public void setIdCalificacion(Integer idCalificacion) {
+    public void setIdCalificacion(Long idCalificacion) {
         this.idCalificacion = idCalificacion;
     }
 
-    public int getEstrallasCalificacion() {
+    public Long getEstrallasCalificacion() {
         return estrallasCalificacion;
     }
 
-    public void setEstrallasCalificacion(int estrallasCalificacion) {
+    public void setEstrallasCalificacion(Long estrallasCalificacion) {
         this.estrallasCalificacion = estrallasCalificacion;
     }
 

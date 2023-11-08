@@ -12,7 +12,7 @@ public class EstadoOcModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Integer idEstadoOc;
+    private Long idEstadoOc;
 
     @Column
     private  String nombreEstadoOc;
@@ -27,18 +27,18 @@ public class EstadoOcModel {
     public EstadoOcModel() {
     }
 
-    public EstadoOcModel(Integer idEstadoOc, String nombreEstadoOc, List<OrdenCompraModel> ordenesCompra, boolean estado) {
+    public EstadoOcModel(Long idEstadoOc, String nombreEstadoOc, List<OrdenCompraModel> ordenesCompra, boolean estado) {
         this.idEstadoOc = idEstadoOc;
         this.nombreEstadoOc = nombreEstadoOc;
         this.ordenesCompra = ordenesCompra;
         this.estado = estado;
     }
 
-    public Integer getIdEstadoOc() {
+    public Long getIdEstadoOc() {
         return idEstadoOc;
     }
 
-    public void setIdEstadoOc(Integer idEstadoOc) {
+    public void setIdEstadoOc(Long idEstadoOc) {
         this.idEstadoOc = idEstadoOc;
     }
 

@@ -11,7 +11,7 @@ public class SaborModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Integer idSabor;
+    private Long idSabor;
 
     @Column
     private String nombreSabor;
@@ -25,18 +25,18 @@ public class SaborModel {
     public SaborModel() {
     }
 
-    public SaborModel(Integer idSabor, String nombreSabor, List<SaborHasProductoModel> saborHasProductos, boolean estado) {
+    public SaborModel(Long idSabor, String nombreSabor, List<SaborHasProductoModel> saborHasProductos, boolean estado) {
         this.idSabor = idSabor;
         this.nombreSabor = nombreSabor;
         this.saborHasProductos = saborHasProductos;
         this.estado = estado;
     }
 
-    public Integer getIdSabor() {
+    public Long getIdSabor() {
         return idSabor;
     }
 
-    public void setIdSabor(Integer idSabor) {
+    public void setIdSabor(Long idSabor) {
         this.idSabor = idSabor;
     }
 

@@ -6,12 +6,12 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "estadopedido")
+@Table(name = "estado_pedido")
 public class EstadoPedidoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Integer idEstadoPedido;
+    private Long idEstadoPedido;
 
     @Column
     private String nombreEstado;
@@ -26,18 +26,18 @@ public class EstadoPedidoModel {
     public EstadoPedidoModel() {
     }
 
-    public EstadoPedidoModel(Integer idEstadoPedido, String nombreEstado, boolean estado, List<PedidoModel> pedidos) {
+    public EstadoPedidoModel(Long idEstadoPedido, String nombreEstado, boolean estado, List<PedidoModel> pedidos) {
         this.idEstadoPedido = idEstadoPedido;
         this.nombreEstado = nombreEstado;
         this.estado = estado;
         this.pedidos = pedidos;
     }
 
-    public Integer getIdEstadoPedido() {
+    public Long getIdEstadoPedido() {
         return idEstadoPedido;
     }
 
-    public void setIdEstadoPedido(Integer idEstadoPedido) {
+    public void setIdEstadoPedido(Long idEstadoPedido) {
         this.idEstadoPedido = idEstadoPedido;
     }
 
