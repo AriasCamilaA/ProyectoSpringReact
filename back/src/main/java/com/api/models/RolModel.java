@@ -1,5 +1,6 @@
 package com.api.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -17,9 +18,11 @@ public class RolModel {
     @Column
     private String nombreRol;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "rol")
     private List<RolHasPermisoModel> rolHasPermisos;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "rol")
     private List<UsuarioModel> usuarios;
 

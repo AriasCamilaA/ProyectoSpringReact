@@ -1,5 +1,7 @@
 package com.api.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -20,10 +22,12 @@ public class CalificacionModel {
     private String comentarioCalificacion;
 
     @ManyToOne
+    @JsonIgnoreProperties("calificaciones")
     @JoinColumn(name = "id_proveedor_fk")
     private ProveedorModel proveedor;
 
     @ManyToOne
+    @JsonIgnoreProperties("calificaciones")
     @JoinColumn(name = "id_pedido_fk")
     private PedidoModel pedido;
 

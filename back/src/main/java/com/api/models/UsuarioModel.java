@@ -1,7 +1,11 @@
 package com.api.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 
 @Entity
@@ -28,7 +32,12 @@ public class UsuarioModel {
    @Column
    private String apellidoUsuario;
 
+   @JsonIgnore
+   @OneToMany(mappedBy = "usuario")
+   private List<PedidoModel> pedidos;
+
    @ManyToOne
+   @JsonIgnoreProperties("usuarios")
    @JoinColumn(name = "id_rol_fk")
    private RolModel rol;
 

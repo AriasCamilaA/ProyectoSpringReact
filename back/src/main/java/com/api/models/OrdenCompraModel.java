@@ -1,6 +1,7 @@
 package com.api.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -18,9 +19,10 @@ public class OrdenCompraModel {
     private Long idOc;
 
     @Column
-    private LocalDate fechaOC;
+    private LocalDate fechaOc;
 
     @ManyToOne
+    @JsonIgnoreProperties("ordenesCompra")
     @JoinColumn(name = "id_estado_oc_fk")
     private EstadoOcModel estadoOc;
 
@@ -38,9 +40,9 @@ public class OrdenCompraModel {
     public OrdenCompraModel() {
     }
 
-    public OrdenCompraModel(Long idOrdenCompra, LocalDate fechaOC, EstadoOcModel estadoOc, List<DetalleOcModel> detallesOc, List<OcHasProveedorModel> ocHasProveedores, boolean estado) {
+    public OrdenCompraModel(Long idOrdenCompra, LocalDate fechaOc, EstadoOcModel estadoOc, List<DetalleOcModel> detallesOc, List<OcHasProveedorModel> ocHasProveedores, boolean estado) {
         this.idOc = idOrdenCompra;
-        this.fechaOC = fechaOC;
+        this.fechaOc = fechaOc;
         this.estadoOc = estadoOc;
         this.detallesOc = detallesOc;
         this.ocHasProveedores = ocHasProveedores;
@@ -55,12 +57,12 @@ public class OrdenCompraModel {
         this.idOc = idOc;
     }
 
-    public LocalDate getFechaOC() {
-        return fechaOC;
+    public LocalDate getFechaOc() {
+        return fechaOc;
     }
 
-    public void setFechaOC(LocalDate fechaOC) {
-        this.fechaOC = fechaOC;
+    public void setFechaOc(LocalDate fechaOc) {
+        this.fechaOc = fechaOc;
     }
 
     public EstadoOcModel getEstadoOc() {

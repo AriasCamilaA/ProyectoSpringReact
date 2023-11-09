@@ -1,5 +1,6 @@
 package com.api.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,11 +13,13 @@ public class OcHasProveedorModel {
     private Long idOcHasProveedor;
 
     @ManyToOne
+    @JsonIgnoreProperties("ocHasProveedores")
     @JoinColumn(name = "id_proveedor_fk")
     private ProveedorModel proveedor;
 
     @ManyToOne
-    @JoinColumn(name = "id_orden_compra_fk")
+    @JsonIgnoreProperties("ocHasProveedores")
+    @JoinColumn(name = "id_oc_fk")
     private OrdenCompraModel ordenCompra;
 
     @Column

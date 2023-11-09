@@ -21,7 +21,8 @@ public class PermisoModel {
 
     @OneToMany(mappedBy = "permiso")
     @JsonIgnore
-    private List<RolHasPermisoModel> RolHasPermisos;
+    private List<RolHasPermisoModel> rolHasPermisos;
+
 
     @Column
     private boolean estado;
@@ -32,7 +33,7 @@ public class PermisoModel {
     public PermisoModel(Long idPermiso, String descripcionPermiso, List<RolHasPermisoModel> rolHasPermisos, boolean estado) {
         this.idPermiso = idPermiso;
         this.descripcionPermiso = descripcionPermiso;
-        RolHasPermisos = rolHasPermisos;
+        rolHasPermisos = rolHasPermisos;
         this.estado = estado;
     }
 
@@ -53,11 +54,11 @@ public class PermisoModel {
     }
 
     public List<RolHasPermisoModel> getRolHasPermisos() {
-        return RolHasPermisos;
+        return rolHasPermisos;
     }
 
     public void setRolHasPermisos(List<RolHasPermisoModel> rolHasPermisos) {
-        RolHasPermisos = rolHasPermisos;
+        rolHasPermisos = rolHasPermisos;
     }
 
     public boolean isEstado() {

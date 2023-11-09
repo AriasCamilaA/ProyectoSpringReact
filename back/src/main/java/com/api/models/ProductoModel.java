@@ -1,6 +1,7 @@
 package com.api.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 
@@ -37,6 +38,7 @@ public class ProductoModel {
     private List<HistoricoModel> historicos;
 
     @ManyToOne
+    @JsonIgnoreProperties("productos")
     @JoinColumn(name = "id_categoria_fk")
     private CategoriaModel categoria;
 

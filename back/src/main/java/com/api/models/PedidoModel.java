@@ -1,6 +1,7 @@
 package com.api.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -23,10 +24,12 @@ public class PedidoModel {
     private LocalDate fechaPedido;
 
     @ManyToOne
+    @JsonIgnoreProperties("pedidos")
     @JoinColumn(name = "id_estado_pedido_fk")
     private EstadoPedidoModel estadoPedido;
 
     @ManyToOne
+    @JsonIgnoreProperties("pedidos")
     @JoinColumn(name = "no_documento_usuario_fk")
     private UsuarioModel usuario;
 
@@ -35,6 +38,7 @@ public class PedidoModel {
     private List<CalificacionModel> calificaciones;
 
     @OneToMany(mappedBy = "pedido")
+    @JsonIgnore
     private List<VentaModel> ventas;
 
     @Column

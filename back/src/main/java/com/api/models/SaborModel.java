@@ -1,5 +1,6 @@
 package com.api.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -17,6 +18,7 @@ public class SaborModel {
     private String nombreSabor;
 
     @OneToMany(mappedBy = "sabor")
+    @JsonIgnore
     private List<SaborHasProductoModel> saborHasProductos;
 
     @Column

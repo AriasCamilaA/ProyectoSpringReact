@@ -1,5 +1,7 @@
 package com.api.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -19,15 +21,19 @@ public class InsumoModel {
 
     @ManyToOne
     @JoinColumn(name = "id_estado_insumo")
+    @JsonIgnoreProperties("insumos")
     private EstadoInsumoModel estadoInsumo;
 
     @OneToMany(mappedBy = "insumo")
+    @JsonIgnore
     private List<DetalleOcModel> detallesOc;
 
     @OneToMany(mappedBy = "insumo")
+    @JsonIgnore
     private List<InventarioModel> inventarios;
 
     @OneToMany(mappedBy = "insumo")
+    @JsonIgnore
     private List<HistoricoModel> historicos;
 
     @Column

@@ -1,5 +1,6 @@
 package com.api.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -14,12 +15,15 @@ public class RolHasPermisoModel {
     private Long idRolHasPermiso;
 
     @ManyToOne
+    @JsonIgnoreProperties("rolHasPermisos")
     @JoinColumn(name = "id_rol_fk")
     private RolModel rol;
 
     @ManyToOne
+    @JsonIgnoreProperties("rolHasPermisos")
     @JoinColumn(name = "id_permiso_fk")
     private PermisoModel permiso;
+
 
     @Column
     private boolean estado;

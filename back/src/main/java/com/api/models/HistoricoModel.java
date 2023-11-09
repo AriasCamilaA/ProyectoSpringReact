@@ -1,5 +1,6 @@
 package com.api.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -27,14 +28,17 @@ public class HistoricoModel {
     private String tipoHistorico;
 
     @ManyToOne
+    @JsonIgnoreProperties("historicos")
     @JoinColumn(name = "id_insumo_fk")
     private InsumoModel insumo;
 
     @ManyToOne
+    @JsonIgnoreProperties("historicos")
     @JoinColumn(name = "id_producto_fk")
     private ProductoModel producto;
 
     @ManyToOne
+    @JsonIgnoreProperties("historicos")
     @JoinColumn(name = "id_tipo_movimiento_fk")
     private TipoMovimientoModel tipoMovimiento;
 
