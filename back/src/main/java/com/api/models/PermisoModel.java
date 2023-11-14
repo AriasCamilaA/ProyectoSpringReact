@@ -33,7 +33,7 @@ public class PermisoModel {
     public PermisoModel(Long idPermiso, String descripcionPermiso, List<RolHasPermisoModel> rolHasPermisos, boolean estado) {
         this.idPermiso = idPermiso;
         this.descripcionPermiso = descripcionPermiso;
-        rolHasPermisos = rolHasPermisos;
+        this.rolHasPermisos = rolHasPermisos;
         this.estado = estado;
     }
 
@@ -58,7 +58,7 @@ public class PermisoModel {
     }
 
     public void setRolHasPermisos(List<RolHasPermisoModel> rolHasPermisos) {
-        rolHasPermisos = rolHasPermisos;
+        this.rolHasPermisos = rolHasPermisos;
     }
 
     public boolean isEstado() {
