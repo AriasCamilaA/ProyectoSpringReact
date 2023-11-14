@@ -1,9 +1,11 @@
 import Footer from "./components/Footer";
+import NavBar from "./components/Navbar";
 import "./Landing.css";
 
 const Landing = () => {
     return (
         <>
+            <NavBar/>
             <div>
             <section id="banner">
                 <div id="carouselExampleIndicators" className="carousel slide">

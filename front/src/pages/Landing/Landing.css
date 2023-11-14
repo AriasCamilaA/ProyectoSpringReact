@@ -1,0 +1,139 @@
+/* -----------------  Carrusel --------------------------------- */
+
+.carousel {
+    height: 70vh;
+    overflow: hidden;
+    align-items: center;
+    display: flex;
+}
+
+.carrusel{
+    display: flex;
+    background-color: var(--fondo2);
+    align-items: center;
+    text-align: center;
+    margin-top: 160px;
+}
+
+.carrusel > div{
+    padding: 20px;
+}
+
+.separador{
+    height: 88px;
+    margin: auto;
+    display: flex;
+}
+
+.quienes_somos{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 354px;
+}
+
+.quienes_somos .contenido{
+    flex-direction: row;
+}
+
+.especialidades{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.especialidades>div{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 800px;
+
+}
+.especialidades>div>div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px;
+
+}
+
+.especialidades img{
+    height: 100px;
+}
+
+.especialidades p{
+    letter-spacing: 5px;
+}
+
+.galeria>div{
+    display: flex ;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.imgs_galeria{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.galeria{
+    background-color: var(--fondo2);
+}
+
+.galeria img{
+    width: 300px;
+    margin: 16px;
+}
+
+@media(max-width:768px) {
+
+    .separador {
+        width: 100%;
+        height: auto;
+    }
+    .carousel{
+        height: auto;
+    }
+
+    .carrusel{
+        flex-direction: column-reverse;
+        margin-top: 84px;
+    }
+
+    .carrusel p {
+        display: none;
+    }
+
+    .quienes_somos{
+        height: auto;
+    }
+
+    .quienes_somos .contenido{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .galeria img{
+        width: 180px;
+    }
+
+    .especialidades img{
+        height: 80px;
+    }
+
+    .especialidades>div{
+        width: auto;
+    }
+
+    .especialidades>div>div{
+        margin: 20px;
+    }
+}
