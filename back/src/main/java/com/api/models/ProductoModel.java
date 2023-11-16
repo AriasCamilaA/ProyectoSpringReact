@@ -37,6 +37,10 @@ public class ProductoModel {
     @OneToMany(mappedBy = "producto")
     private List<HistoricoModel> historicos;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "producto")
+    private List<DetallePedidoModel> detallesPedido;
+
     @ManyToOne
     @JsonIgnoreProperties("productos")
     @JoinColumn(name = "id_categoria_fk")

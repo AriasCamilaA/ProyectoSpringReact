@@ -41,6 +41,10 @@ public class PedidoModel {
     @JsonIgnore
     private List<VentaModel> ventas;
 
+    @OneToMany(mappedBy = "pedido")
+    @JsonIgnore
+    private List<DetallePedidoModel> detallesPedido;
+
     @Column
     private boolean estado;
 
