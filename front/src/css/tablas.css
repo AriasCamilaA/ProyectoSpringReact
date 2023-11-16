@@ -1,0 +1,162 @@
+/* ----------------------- Opciones de estado ----------------------------- */
+
+.opciones {
+    width: auto;
+    margin: 16px 0;
+}
+
+.opciones input {
+    display: none;
+}
+
+.opciones label {
+    display: flex;
+    padding: 10px;
+    border-radius: 16px;
+    margin: 4px;
+    font-weight: bold;
+    /* font-family: "sofia"; */
+    transition: background 0.3s, color 0.3s;
+}
+
+.opciones input:hover+label {
+    cursor: pointer;
+}
+
+.opciones input:checked+label {
+    color: var(--blanco);
+}
+
+.opciones .btn-porAprobar:checked+label {
+    background: var(--btn-porAprobar);
+}
+.opciones .btn-aprobado:checked+label {
+    background: var(--btn-aprobado);
+}
+.opciones .btn-preparandose:checked+label {
+    background: var(--btn-preparandose);
+}
+.opciones .btn-paraRecoger:checked+label {
+    background: var(--btn-paraRecoger);
+}
+.opciones .btn-cancelados:checked+label {
+    background: var(--btn-cancelados);
+}
+.opciones .btn-aceptarCambios:checked+label {
+    background: var(--btn-aceptarCambios);
+}
+.opciones .btn-finalizados:checked+label {
+    background: var(--btn-finalizados);
+}
+.opciones .btn-all:checked+label {
+    background: var(--btn-all);
+}
+
+/* ------------------------ Filtros --------------------------------- */
+.filtros{
+    display: flex;
+    width: 100%;
+    max-width: 840px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.filtros img {
+    height: 32px;
+    border: 1px solid var(--oscuro);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.filtros input {
+    height: 32px;
+    border: 1px solid var(--oscuro);
+    border-radius: 16px;
+    padding: 0 12px;
+}
+
+.filtros__fecha{
+    display: flex;
+}
+
+.filtros__fecha input:first-child {
+    border-radius: 16px 0 0 16px;
+}
+
+.filtros__fecha input:last-child {
+    border-radius: 0 16px 16px 0;
+}
+
+/* -------------------------- Tabla -------------------------------------- */
+.tabla {
+    margin: 0;
+    padding: 4px;
+    min-width: auto;
+    width: 100%;
+    max-height: 332px;
+    border: 1px solid var(--oscuro);
+    border-radius: 0;
+    overflow: auto;
+}
+
+.table {
+    margin: 0;
+    text-align: center;
+}
+
+.tabla thead{
+    border-bottom: 1px solid var(--oscuro);
+}
+
+.tabla__opcion, .tabla__estado{
+    border-left: 1px solid var(--oscuro) ;
+}
+
+.tabla span {
+    padding: 4px;
+    border-radius: 8px;
+    font-family: sofia;
+}
+
+.tabla__total{
+    font-family: 'Taviraj' !important;
+}
+
+.tabla__opcion img {
+    height: 24px;
+    cursor: pointer;
+}
+/* Tabla con accordion de pedidos */
+.accordion{
+    margin: 16px;
+    padding: 4px;
+    min-width: auto;
+    width: 90%;
+    max-height: 332px;
+    border: 1px solid var(--oscuro);
+    border-radius: 16px;
+    overflow: auto;
+}
+
+.accordion .tabla{
+    width: 100%;
+    margin: 0;
+}
+
+/* -------------Modal agregar-------------------- */
+.modal-header{
+    background: var(--oscuro);
+    color: var(--blanco);
+    font-family: sofia;
+}
+
+.modal-header *{
+    color: var(--blanco);
+}
+
+.modal-header button {
+    background: none;
+    border: none;
+    color: var(--blanco);
+    font-size: 28px;
+}

@@ -1,0 +1,105 @@
+:root {
+    --btn-porAprobar:#50AA4E;
+    --btn-aprobado:#7000FF;
+    --btn-preparandose:#8B3A00;
+    --btn-paraRecoger:#52456F;
+    --btn-cancelados:#FF0505;
+    --btn-aceptarCambios:#EF6E00;
+    --btn-finalizados:#009E78;
+    --btn-all:#444f4d;
+}
+
+.btn {
+    border: 1px solid var(--claro);
+    color: var(--claro);
+}
+
+.btn:hover {
+    background: var(--claro) ;
+    color: var(--blanco);
+    cursor: pointer;
+}
+
+.btn_largo {
+    padding: 12px;
+    width: -webkit-fill-available;
+    border-radius: 16px
+}
+
+.btn-porAprobar{
+    border: 1px solid var(--btn-porAprobar);
+    color: var(--btn-porAprobar);
+}
+.btn-aprobado{
+    border: 1px solid var(--btn-aprobado);
+    color: var(--btn-aprobado);
+}
+.btn-preparandose{
+    border: 1px solid var(--btn-preparandose);
+    color: var(--btn-preparandose);
+}
+.btn-paraRecoger{
+    border: 1px solid var(--btn-paraRecoger);
+    color: var(--btn-paraRecoger);
+}
+.btn-cancelados{
+    border: 1px solid var(--btn-cancelados);
+    color: var(--btn-cancelados);
+}
+.btn-aceptarCambios{
+    border: 1px solid var(--btn-aceptarCambios);
+    color: var(--btn-aceptarCambios);
+}
+.btn-finalizados{
+    border: 1px solid var(--btn-finalizados);
+    color: var(--btn-finalizados);
+}
+.btn-all{
+    border: 1px solid var(--btn-all);
+    color: var(--btn-all);
+}
+
+/* __________hover____________ */
+
+.btn-porAprobar:hover{
+    border: 1px solid var(--btn-porAprobar);
+    background: var(--btn-porAprobar);
+    color: var(--blanco)
+}
+.btn-aprobado:hover{
+    border: 1px solid var(--btn-aprobado);
+    background: var(--btn-aprobado);
+    color: var(--blanco)
+}
+.btn-preparandose:hover{
+    border: 1px solid var(--btn-preparandose);
+    background: var(--btn-preparandose);
+    color: var(--blanco)
+}
+.btn-paraRecoger:hover{
+    border: 1px solid var(--btn-paraRecoger);
+    background: var(--btn-paraRecoger);
+    color: var(--blanco)
+}
+.btn-cancelados:hover{
+    border: 1px solid var(--btn-cancelados);
+    background: var(--btn-cancelados);
+    color: var(--blanco)
+}
+.btn-aceptarCambios:hover{
+    border: 1px solid var(--btn-aceptarCambios);
+    background: var(--btn-aceptarCambios);
+    color: var(--blanco)
+}
+.btn-finalizados:hover{
+    border: 1px solid var(--btn-finalizados);
+    background: var(--btn-finalizados);
+    color: var(--blanco)
+}
+.btn-all:hover{
+    border: 1px solid var(--btn-all);
+    background: var(--btn-all);
+    color: var(--blanco)
+}
+
+

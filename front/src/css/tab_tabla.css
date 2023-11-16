@@ -1,0 +1,38 @@
+.tablaConTab{
+    margin-top: 16px;
+    width: 90%;
+}
+.tablink{
+    float: left;
+    width: auto;
+    border: none;
+    display: block;
+    outline: 0;
+    font-weight: 600;
+    padding: 9px 24px;
+    background-color: transparent;
+}
+
+.bg-oscuro{
+    background-color: var(--fondo1);
+}
+
+.tabla {
+    margin: auto;
+    /* padding: 4px; */
+    min-width: auto;
+    width: 100%;
+    /* max-height: 332px; */
+    height: 100%;
+    border: 1px solid var(--oscuro);
+    border-radius: 0 16px 16px 16px;
+    overflow: auto;
+}
+
+.tab_content{
+    height: 260px;
+}
+
+h1{
+    margin-bottom: 0;
+}

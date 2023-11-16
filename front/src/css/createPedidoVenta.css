@@ -1,0 +1,86 @@
+h5{
+    font-weight: bold;
+}
+
+.modal{
+    overflow: hidden;
+}
+
+.modal-body{
+    display: flex;
+}
+
+.catalogo, .carrito {
+    height: calc(100vh - 10rem);
+    overflow: auto;
+
+}
+
+.catalogo{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    justify-content: center;
+    width: 70%;
+}
+
+.catalogo .card{
+    width: 12rem !important; 
+}
+
+.catalogo .card-body{
+    position: relative;
+}
+
+.catalogo .btn{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+
+
+.carrito{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 16px;
+    background-color: var(--fondo3);
+    width: 30%;
+}
+
+.carrito__productos{
+    display: flex;
+    gap: 4px;
+    flex-direction: column;
+    height: calc(100vh - 20rem);
+    overflow: auto;
+}
+
+.carrito .card-body{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.carrito .descripcion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carrito__footer{
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+    padding: 8px;
+    border: 1px dashed var(--oscuro);
+    justify-content: space-between;
+}
+
+.carrito__footer h2, .carrito__footer p{
+    font-family: 'Taviraj', serif;
+    font-size: 1.2rem;
+    margin: 0;
+}
