@@ -1,7 +1,6 @@
 package com.api.controllers;
 
 import com.api.models.CategoriaModel;
-import com.api.repositories.CategoriaRepository;
 import com.api.services.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

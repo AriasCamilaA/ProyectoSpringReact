@@ -1,7 +1,6 @@
 package com.api.controllers;
 
 import com.api.models.SaborHasProductoModel;
-import com.api.services.PermisoService;
 import com.api.services.SaborHasProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
