@@ -323,7 +323,7 @@ INSERT INTO Usuario (no_Documento_Usuario, email, password, celular_Usuario, nom
   (5678901239, 'Montoya_Valencia@example.com', '$2y$10$6gpwlik9Y/ZClXDTVk3N6uJTsV4B9P1abA2Z1Kzjny/O3DiA8jfty', 5678901239, 'Felipe Juan', 'Montoya Valencia', 2);
   
 INSERT INTO Estado_Pedido(id_Estado_Pedido, nombre_Estado) VALUES
-  ('1', 'Por Arpobar'),
+  ('1', 'Por Aprobar'),
   ('2', 'Aprobado'),
   ('3', 'Preparándose'),
   ('4', 'Para Recoger'),
@@ -332,16 +332,16 @@ INSERT INTO Estado_Pedido(id_Estado_Pedido, nombre_Estado) VALUES
   ('7', 'Finalizados');
   
 INSERT INTO Pedido (descripcion_Pedido, fecha_Pedido, id_Estado_Pedido_fk, no_Documento_Usuario_FK) VALUES 
-  ('Quiero una oblea con todos los ingredientes', '2023-06-12 09:30:00', 5, 7890123456),
-  ('Dos cheesecake de limon', '2023-06-12 10:15:00', 7, 8901234567),
-  ('Necesito una bandeja de tres leches para el martes', '2023-06-12 11:20:00', 3, 2345678902),
-  ('Me gustaria un chieescake de maracuya y una oblea con arequipe y crema de leche', '2023-06-12 12:45:00', 5, 6789012346),
-  ('Quiero comprar cinco malteadas medianas', '2023-06-12 13:30:00', 7, 2345678903),
-  ('Me podrias vender dos brevas con arequipe ', '2023-06-12 14:20:00', 3, 1234567893),
-  ('Buenas tardes, me gustaria una malteada y un waffle', '2023-06-12 15:15:00', 5, 5678901237),
-  ('Buenas noches, deseo comprar 6 kilos de helado sabor a pistache', '2023-06-12 16:10:00', 7, 6789012348),
-  ('Deseo adquirir una torta de zanahoria para 15 personas', '2023-06-12 17:25:00', 3, 7890123459),
-  ('Deseo pedir 8 pedazos de torta de chocolate para acompañar mi helado', '2023-06-12 18:40:00', 2, 5678901238);
+  ('Sin descripción', '2023-06-12 09:30:00', 5, 7890123456),
+  ('Sin descripción', '2023-06-12 10:15:00', 1, 8901234567),
+  ('Sin descripción', '2023-06-12 11:20:00', 3, 2345678902),
+  ('Sin descripción', '2023-06-12 12:45:00', 5, 6789012346),
+  ('Sin descripción', '2023-06-12 13:30:00', 1, 2345678903),
+  ('Sin descripción', '2023-06-12 14:20:00', 3, 1234567893),
+  ('Sin descripción', '2023-06-12 15:15:00', 5, 5678901237),
+  ('Sin descripción', '2023-06-12 16:10:00', 1, 6789012348),
+  ('Sin descripción', '2023-06-12 17:25:00', 3, 7890123459),
+  ('Sin descripción', '2023-06-12 18:40:00', 2, 5678901238);
   
 INSERT INTO Calificacion (estrallas_Calificacion, comentario_Calificacion, id_Pedido_FK) VALUES
   (5, "El pedido llegó antes de lo esperado. ¡Excelente servicio!", 1),
@@ -589,6 +589,27 @@ INSERT INTO oc_has_proveedor (id_oc_fk, id_proveedor_fk) VALUES
   (18, 4),
   (19, 9),
   (19, 4);
+  
+INSERT INTO Detalle_Pedido (cantidad_producto, subtotal_Detalle_Pedido, id_Producto_FK, id_Pedido_FK) VALUES
+  (2, 9000, 1, 1),
+  (1, 3000, 2, 1),
+  (3, 6000, 3, 1),
+  (1, 6000, 4, 2),
+  (2, 30000, 5, 3),
+  (1, 24000, 6, 4),
+  (2, 12000, 7, 5),
+  (1, 6000, 8, 5),
+  (1, 50000, 9, 6),
+  (2, 20000, 10, 7),
+  (3, 12000, 11, 8),
+  (1, 4000, 12, 8),
+  (2, 50000, 13, 9),
+  (1, 1500, 14, 9),
+  (2, 5000, 15, 9),
+  (1, 2500, 16, 10),
+  (1, 4500, 17, 10),
+  (1, 6500, 18, 10);
+  
   
 INSERT INTO Detalle_Venta (cantidad_producto, subtotal_Detalle_Venta, id_Producto_FK, id_Venta_FK) VALUES
   (2, 9000, 1, 1),

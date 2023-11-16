@@ -40,20 +40,7 @@ CREATE TABLE IF NOT EXISTS usuario (
     FOREIGN KEY (id_rol_fk) REFERENCES rol (id_rol)
     );
 
--- -----------------------------------------------------
--- Tabla pedido
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS pedido (
-    id_pedido BIGINT NOT NULL AUTO_INCREMENT,
-    descripcion_pedido VARCHAR(255),
-    fecha_pedido DATE,
-    id_estado_pedido_fk BIGINT,
-    no_documento_usuario_fk BIGINT,
-    estado BIT(1) NOT NULL DEFAULT 1,
-    PRIMARY KEY (id_pedido),
-    FOREIGN KEY (id_estado_pedido_fk) REFERENCES estado_pedido (id_estado_pedido),
-    FOREIGN KEY (no_documento_usuario_fk) REFERENCES usuario (no_documento_usuario)
-    );
+
 
 -- -----------------------------------------------------
 -- Tabla proveedor
@@ -71,20 +58,6 @@ CREATE TABLE IF NOT EXISTS proveedor (
     PRIMARY KEY (id_proveedor)
     );
 
--- -----------------------------------------------------
--- Tabla calificacion
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS calificacion (
-    id_calificacion BIGINT NOT NULL AUTO_INCREMENT,
-    comentario_calificacion VARCHAR(255),
-    estrallas_calificacion INT,
-    id_pedido_fk BIGINT,
-    id_proveedor_fk BIGINT,
-    estado BIT(1) NOT NULL DEFAULT 1,
-    PRIMARY KEY (id_calificacion),
-    FOREIGN KEY (id_pedido_fk) REFERENCES pedido (id_pedido),
-    FOREIGN KEY (id_proveedor_fk) REFERENCES proveedor (id_proveedor)
-    );
 -- -----------------------------------------------------
 -- Tabla categoria
 -- -----------------------------------------------------
@@ -108,6 +81,51 @@ CREATE TABLE IF NOT EXISTS producto (
     estado BIT(1) NOT NULL DEFAULT 1,
     PRIMARY KEY (id_producto),
     FOREIGN KEY (id_categoria_fk) REFERENCES categoria (id_categoria)
+    );
+
+-- -----------------------------------------------------
+-- Tabla pedido
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS pedido (
+    id_pedido BIGINT NOT NULL AUTO_INCREMENT,
+    descripcion_pedido VARCHAR(255),
+    fecha_pedido DATE,
+    id_estado_pedido_fk BIGINT,
+    no_documento_usuario_fk BIGINT,
+    estado BIT(1) NOT NULL DEFAULT 1,
+    PRIMARY KEY (id_pedido),
+    FOREIGN KEY (id_estado_pedido_fk) REFERENCES estado_pedido (id_estado_pedido),
+    FOREIGN KEY (no_documento_usuario_fk) REFERENCES usuario (no_documento_usuario)
+    );
+
+-- -----------------------------------------------------
+-- Tabla detalle_pedido
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS detalle_pedido (
+    id_detalle_pedido BIGINT NOT NULL AUTO_INCREMENT,
+    cantidad_producto INT,
+    subtotal_detalle_pedido BIGINT,
+    id_producto_fk BIGINT,
+    id_pedido_fk BIGINT,
+    estado BIT(1) NOT NULL DEFAULT 1,
+    PRIMARY KEY (id_detalle_pedido),
+    FOREIGN KEY (id_producto_fk) REFERENCES producto (id_producto),
+    FOREIGN KEY (id_pedido_fk) REFERENCES pedido (id_pedido)
+    );
+
+-- -----------------------------------------------------
+-- Tabla calificacion
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS calificacion (
+    id_calificacion BIGINT NOT NULL AUTO_INCREMENT,
+    comentario_calificacion VARCHAR(255),
+    estrallas_calificacion INT,
+    id_pedido_fk BIGINT,
+    id_proveedor_fk BIGINT,
+    estado BIT(1) NOT NULL DEFAULT 1,
+    PRIMARY KEY (id_calificacion),
+    FOREIGN KEY (id_pedido_fk) REFERENCES pedido (id_pedido),
+    FOREIGN KEY (id_proveedor_fk) REFERENCES proveedor (id_proveedor)
     );
 
 -- -----------------------------------------------------
@@ -307,6 +325,36 @@ CREATE TABLE IF NOT EXISTS sabor_has_producto (
 
     TRIGGERS
 __________________________________________________________*/
+
+DELIMITER $$
+CREATE TRIGGER TG_pedidofinalizado_AU AFTER UPDATE ON pedido
+FOR EACH ROW
+BEGIN
+    DECLARE total_venta BIGINT; -- Mueve la declaración aquí
+
+    IF NEW.id_estado_pedido_fk = 7 THEN -- 7 = Finalizado (estado pedido)
+        -- Calcular el total de la venta sumando los subtotales de los detalles del pedido
+        SELECT SUM(subtotal_detalle_pedido) INTO total_venta
+        FROM detalle_pedido
+        WHERE id_pedido_fk = NEW.id_pedido AND estado = 1;
+
+        -- Insertar en la tabla venta
+        INSERT INTO venta (fecha_venta, hora_venta, total_venta, id_pedido_fk, no_documento_usuario_fk)
+        VALUES (CURDATE(), CURTIME(), total_venta, NEW.id_pedido, NEW.no_documento_usuario_fk);
+
+        -- Obtener el id de la venta recién insertada
+        SET @id_venta = LAST_INSERT_ID();
+
+        -- Insertar detalles de la venta
+        INSERT INTO detalle_venta (cantidad_producto, subtotal_detalle_venta, id_producto_fk, id_venta_fk)
+        SELECT cantidad_producto, subtotal_detalle_pedido, id_producto_fk, @id_venta
+        FROM detalle_pedido
+        WHERE id_pedido_fk = NEW.id_pedido AND estado = 1;
+    END IF;
+END$$
+DELIMITER ;
+
+
 
 /*---Agregar registro a la tabla Inventario por cada insert en la tabla Insumo ---*/
 DELIMITER $$
