@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { formatearFecha } from "../../../../utilities";
 
 const TablePedidos = ({pedidosNoFinalizados, pedidosFinalizados, searchTerm, estados}) => {
     const [tabActual, setTabActual] = useState('Pendientes');
@@ -69,7 +70,7 @@ const TablePedidos = ({pedidosNoFinalizados, pedidosFinalizados, searchTerm, est
                                     <tr key={pedido.idPedido}>
                                         <th>{pedido.idPedido}</th>
                                         <td>{pedido.descripcionPedido}</td>
-                                        <td>{pedido.fechaPedido}</td>
+                                        <td>{formatearFecha(pedido.fechaPedido)}</td>
                                         <td>{pedido.usuario.noDocumentoUsuario}</td>
                                         <td>{pedido.usuario.celularUsuario}</td>
                                         <td>{pedido.usuario.nombreUsuario} {pedido.usuario.apellidoUsuario}</td>
@@ -111,7 +112,7 @@ const TablePedidos = ({pedidosNoFinalizados, pedidosFinalizados, searchTerm, est
                                     <tr key={pedido.idPedido}>
                                         <th>{pedido.idPedido}</th>
                                         <td>{pedido.descripcionPedido}</td>
-                                        <td>{pedido.fechaPedido}</td>
+                                        <td>{formatearFecha(pedido.fechaPedido)}</td>
                                         <td>{pedido.usuario.noDocumentoUsuario}</td>
                                         <td>{pedido.usuario.celularUsuario}</td>
                                         <td>{pedido.usuario.nombreUsuario} {pedido.usuario.apellidoUsuario}</td>

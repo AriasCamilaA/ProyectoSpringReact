@@ -68,6 +68,10 @@ const handleAgregarProducto = (e, productoId, nombre, precio) => {
     }));
   };
 
+  // Función para determinar si el carrito está vacío
+  const isCarritoVacio = Object.keys(productosAgregados).length === 0;
+
+
   // Función para quitar cantidad de un producto en el carrito
   const handleQuitarCantidad = (e, productoId) => {
     e.preventDefault();
@@ -102,7 +106,12 @@ const handleAgregarProducto = (e, productoId, nombre, precio) => {
     try {
       // Detalles del pedido
       const descripcionPedido = "sin Descripción";
-      const fechaPedido = new Date().toISOString().slice(0, 10);
+      const fechaActual = new Date();
+      const año = fechaActual.getFullYear();
+      const mes = ('0' + (fechaActual.getMonth() + 1)).slice(-2); // Suma 1 porque los meses van de 0 a 11
+      const dia = ('0' + fechaActual.getDate()).slice(-2);
+
+      const fechaPedido = `${año}-${mes}-${dia}`;
       const estadoPedidoId = 1;
       const noDocumentoUsuario = 1234567893;
   
@@ -216,10 +225,15 @@ const handleAgregarProducto = (e, productoId, nombre, precio) => {
           <h2>Total</h2>
           <p id="total-precio">${calcularTotal().toLocaleString()}</p>
         </div>
-        {/* Botón para crear el pedido */}
-        <button className="btn" id="crear-pedido" onClick={handleCrearPedido}>
-          Crear Pedido
-        </button>
+        {/* Botón para crear el pedido o vaciar carrito */}
+          <div className="d-flex flex-wrap w-100 justify-content-between gap-1">
+            <button className="btn btn-pdf" onClick={()=>setProductosAgregados({})} disabled={isCarritoVacio}>
+              Limpiar Carrito
+            </button>
+            <button className="btn btn-excel" id="crear-pedido" onClick={handleCrearPedido} disabled={isCarritoVacio}>
+              Crear Pedido
+            </button>
+          </div>
       </div>
     </div>
   );

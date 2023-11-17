@@ -34,3 +34,14 @@ export function formatNumberToCopWithDecimal(value) {
     return formattedValue;
 }
 
+export const formatearFecha = (fechaString) => {
+    const fecha = new Date(fechaString);
+    
+    // Obtener día, mes y año
+    const dia = fecha.getDate();
+    const mes = fecha.toLocaleString('default', { month: 'short' }); // Obtiene el mes en formato de tres letras
+    const anio = fecha.getFullYear();
+    
+    // Concatenar y devolver la fecha formateada
+    return `${dia}/${mes}/${anio}`;
+  };
