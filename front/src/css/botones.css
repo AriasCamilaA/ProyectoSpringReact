@@ -7,6 +7,9 @@
     --btn-aceptarCambios:#EF6E00;
     --btn-finalizados:#009E78;
     --btn-all:#444f4d;
+    --btn-excel: #165331;
+    --btn-pdf: #b20902;
+    --btn-oscuro: var(--oscuro);
 }
 
 .btn {
@@ -58,6 +61,18 @@
     border: 1px solid var(--btn-all);
     color: var(--btn-all);
 }
+.btn-excel{
+    border: 1px solid var(--btn-excel);
+    color: var(--btn-excel);
+}
+.btn-pdf{
+    border: 1px solid var(--btn-pdf);
+    color: var(--btn-pdf);
+}
+.btn-oscuro{
+    border: 1px solid var(--btn-oscuro);
+    color: var(--btn-oscuro);
+}
 
 /* __________hover____________ */
 
@@ -99,6 +114,21 @@
 .btn-all:hover{
     border: 1px solid var(--btn-all);
     background: var(--btn-all);
+    color: var(--blanco)
+}
+.btn-excel:hover{
+    border: 1px solid var(--btn-excel);
+    background: var(--btn-excel);
+    color: var(--blanco)
+}
+.btn-pdf:hover{
+    border: 1px solid var(--btn-pdf);
+    background: var(--btn-pdf);
+    color: var(--blanco)
+}
+.btn-oscuro:hover{
+    border: 1px solid var(--btn-oscuro);
+    background: var(--btn-oscuro);
     color: var(--blanco)
 }
 

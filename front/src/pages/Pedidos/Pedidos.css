@@ -1,0 +1,53 @@
+/* ----------------------- Opciones de estado ----------------------------- */
+
+.opciones {
+    width: auto;
+    margin: 16px 0;
+}
+
+.opciones input {
+    display: none;
+}
+
+.opciones label {
+    display: flex;
+    padding: 10px;
+    border-radius: 16px;
+    margin: 4px;
+    font-weight: bold;
+    /* font-family: "sofia"; */
+    transition: background 0.3s, color 0.3s;
+}
+
+.opciones input:hover+label {
+    cursor: pointer;
+}
+
+.opciones input:checked+label {
+    color: var(--blanco);
+}
+
+.opciones .btn-porAprobar:checked+label {
+    background: var(--btn-porAprobar);
+}
+.opciones .btn-aprobado:checked+label {
+    background: var(--btn-aprobado);
+}
+.opciones .btn-preparandose:checked+label {
+    background: var(--btn-preparandose);
+}
+.opciones .btn-paraRecoger:checked+label {
+    background: var(--btn-paraRecoger);
+}
+.opciones .btn-cancelados:checked+label {
+    background: var(--btn-cancelados);
+}
+.opciones .btn-aceptarCambios:checked+label {
+    background: var(--btn-aceptarCambios);
+}
+.opciones .btn-finalizados:checked+label {
+    background: var(--btn-finalizados);
+}
+.opciones .btn-all:checked+label {
+    background: var(--btn-all);
+}

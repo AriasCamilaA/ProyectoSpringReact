@@ -1,0 +1,81 @@
+/* ------------------------ Filtros --------------------------------- */
+.filtros{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filtros img {
+    height: 32px;
+    border: 1px solid var(--oscuro);
+    border-radius: 50%;
+}
+
+.filtros input {
+    height: 32px;
+    border: 1px solid var(--oscuro);
+    border-radius: 16px;
+    padding: 0 12px;
+}
+
+.filtros__fecha{
+    display: flex;
+}
+
+.filtros__fecha input{
+    width: 8.5em;
+}
+
+.filtros__fecha input:first-child {
+    border-radius: 16px 0 0 16px;
+}
+
+.filtros__fecha input:last-child {
+    border-radius: 0 16px 16px 0;
+}
+
+.filtros__div1{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.filtros__limpiar{
+    height: 32px;
+    border: 1px solid var(--oscuro);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 1em;
+    border-radius: 1em;
+    cursor: pointer;
+    color: var(--oscuro);
+}
+.filtros__limpiar:hover{
+    background-color: var(--fondo1);
+}
+
+
+.inputSearch{
+    display: flex;
+}
+
+.inputSearch img{
+    border-radius: 50% 0 0 50%;
+}
+
+.inputSearch input{
+    border-radius: 0 1em 1em 0;
+}
+
+.flitros__opciones{
+    gap: 0.5em;
+}
+
+.flitros__opciones .btn{
+    display: flex;
+    padding: 0 auto;
+    margin: 0;
+    align-items: center;
+}

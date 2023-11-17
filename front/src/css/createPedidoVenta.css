@@ -6,10 +6,6 @@ h5{
     overflow: hidden;
 }
 
-.modal-body{
-    display: flex;
-}
-
 .catalogo, .carrito {
     height: calc(100vh - 10rem);
     overflow: auto;

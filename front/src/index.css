@@ -30,7 +30,8 @@ body {
 h1,h2,h3 {
     font-family: 'Sofia', cursive;
     color: var(--oscuro);
-    margin-bottom: revert;
+    margin-bottom: 0;
+    /* margin-bottom: revert; */
     /* margin: 20px 4px; */
 }
 
@@ -72,8 +73,8 @@ footer {
     justify-content: center;
     align-items: center;
     position: relative;
-    top: 60px;
-    height: calc(100vh - 66px);
+    top: 68px;
+    height: calc(100vh - 68px);
 }
 
 /*-------------------------Menu Principal-----------------------------------*/

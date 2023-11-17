@@ -16,6 +16,9 @@ public class ProductoModel {
     private Long idProducto;
 
     @Column
+    private String nombreProducto;
+
+    @Column
     private Long precioProducto;
 
     @Column
@@ -52,8 +55,9 @@ public class ProductoModel {
     public ProductoModel() {
     }
 
-    public ProductoModel(Long idProducto, Long precioProducto, String imagenProducto, List<DetalleVentaModel> detalleVentas, List<InventarioModel> inventarios, List<SaborHasProductoModel> saborHasProductos, List<HistoricoModel> historicos, CategoriaModel categoria, boolean estado) {
+    public ProductoModel(Long idProducto,String nombreProducto, Long precioProducto, String imagenProducto, List<DetalleVentaModel> detalleVentas, List<InventarioModel> inventarios, List<SaborHasProductoModel> saborHasProductos, List<HistoricoModel> historicos, CategoriaModel categoria, boolean estado) {
         this.idProducto = idProducto;
+        this.nombreProducto = nombreProducto;
         this.precioProducto = precioProducto;
         this.imagenProducto = imagenProducto;
         this.detalleVentas = detalleVentas;
@@ -70,6 +74,14 @@ public class ProductoModel {
 
     public void setIdProducto(Long idProducto) {
         this.idProducto = idProducto;
+    }
+
+    public String getNombreProducto() {
+        return nombreProducto;
+    }
+
+    public void setNombreProducto(String nombreProducto) {
+        this.nombreProducto = nombreProducto;
     }
 
     public Long getPrecioProducto() {
