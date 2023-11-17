@@ -3,11 +3,11 @@ import apiService from '../../services';
 import { showAlert } from '../../utilities';
 import CreatePedido from './components/CreatePedido';
 import TablePedidos from './components/TablePedidos';
-import "../../css/botones.css";
 import "../../css/tab_tabla.css";
 import "../../css/tablas.css";
 import "../../css/filtros.css";
 import "./Pedidos.css"
+import "../../css/botones.css";
 
 const Pedidos = () => {
     const [pedidos, setPedidos] = useState([]);

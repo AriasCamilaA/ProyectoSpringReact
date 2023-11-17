@@ -13,123 +13,123 @@
 }
 
 .btn {
-    border: 1px solid var(--claro);
-    color: var(--claro);
+    border: 1px solid var(--claro) !important ;
+    color: var(--claro) !important ;
 }
 
 .btn:hover {
-    background: var(--claro) ;
-    color: var(--blanco);
-    cursor: pointer;
+    background: var(--claro)  !important ;
+    color: var(--blanco) !important ;
+    cursor: pointer !important ;
 }
 
 .btn_largo {
-    padding: 12px;
-    width: -webkit-fill-available;
+    padding: 12px !important ;
+    width: -webkit-fill-available !important ;
     border-radius: 16px
 }
 
 .btn-porAprobar{
-    border: 1px solid var(--btn-porAprobar);
-    color: var(--btn-porAprobar);
+    border: 1px solid var(--btn-porAprobar) !important ;
+    color: var(--btn-porAprobar) !important ;
 }
 .btn-aprobado{
-    border: 1px solid var(--btn-aprobado);
-    color: var(--btn-aprobado);
+    border: 1px solid var(--btn-aprobado) !important ;
+    color: var(--btn-aprobado) !important ;
 }
 .btn-preparandose{
-    border: 1px solid var(--btn-preparandose);
-    color: var(--btn-preparandose);
+    border: 1px solid var(--btn-preparandose) !important ;
+    color: var(--btn-preparandose) !important ;
 }
 .btn-paraRecoger{
-    border: 1px solid var(--btn-paraRecoger);
-    color: var(--btn-paraRecoger);
+    border: 1px solid var(--btn-paraRecoger) !important ;
+    color: var(--btn-paraRecoger) !important ;
 }
 .btn-cancelados{
-    border: 1px solid var(--btn-cancelados);
-    color: var(--btn-cancelados);
+    border: 1px solid var(--btn-cancelados) !important ;
+    color: var(--btn-cancelados) !important ;
 }
 .btn-aceptarCambios{
-    border: 1px solid var(--btn-aceptarCambios);
-    color: var(--btn-aceptarCambios);
+    border: 1px solid var(--btn-aceptarCambios) !important ;
+    color: var(--btn-aceptarCambios) !important ;
 }
 .btn-finalizados{
-    border: 1px solid var(--btn-finalizados);
-    color: var(--btn-finalizados);
+    border: 1px solid var(--btn-finalizados) !important ;
+    color: var(--btn-finalizados) !important ;
 }
 .btn-all{
-    border: 1px solid var(--btn-all);
-    color: var(--btn-all);
+    border: 1px solid var(--btn-all) !important ;
+    color: var(--btn-all) !important ;
 }
 .btn-excel{
-    border: 1px solid var(--btn-excel);
-    color: var(--btn-excel);
+    border: 1px solid var(--btn-excel) !important ;
+    color: var(--btn-excel) !important ;
 }
 .btn-pdf{
-    border: 1px solid var(--btn-pdf);
-    color: var(--btn-pdf);
+    border: 1px solid var(--btn-pdf) !important ;
+    color: var(--btn-pdf) !important ;
 }
 .btn-oscuro{
-    border: 1px solid var(--btn-oscuro);
-    color: var(--btn-oscuro);
+    border: 1px solid var(--btn-oscuro) !important ;
+    color: var(--btn-oscuro) !important ;
 }
 
 /* __________hover____________ */
 
 .btn-porAprobar:hover{
-    border: 1px solid var(--btn-porAprobar);
-    background: var(--btn-porAprobar);
-    color: var(--blanco)
+    border: 1px solid var(--btn-porAprobar) !important ;
+    background: var(--btn-porAprobar) !important ;
+    color: var(--blanco) !important ;
 }
 .btn-aprobado:hover{
-    border: 1px solid var(--btn-aprobado);
-    background: var(--btn-aprobado);
-    color: var(--blanco)
+    border: 1px solid var(--btn-aprobado) !important ;
+    background: var(--btn-aprobado) !important ;
+    color: var(--blanco) !important ;
 }
 .btn-preparandose:hover{
-    border: 1px solid var(--btn-preparandose);
-    background: var(--btn-preparandose);
-    color: var(--blanco)
+    border: 1px solid var(--btn-preparandose) !important ;
+    background: var(--btn-preparandose) !important ;
+    color: var(--blanco) !important ;
 }
 .btn-paraRecoger:hover{
-    border: 1px solid var(--btn-paraRecoger);
-    background: var(--btn-paraRecoger);
-    color: var(--blanco)
+    border: 1px solid var(--btn-paraRecoger) !important ;
+    background: var(--btn-paraRecoger) !important ;
+    color: var(--blanco) !important ;
 }
 .btn-cancelados:hover{
-    border: 1px solid var(--btn-cancelados);
-    background: var(--btn-cancelados);
-    color: var(--blanco)
+    border: 1px solid var(--btn-cancelados) !important ;
+    background: var(--btn-cancelados) !important ;
+    color: var(--blanco) !important ;
 }
 .btn-aceptarCambios:hover{
-    border: 1px solid var(--btn-aceptarCambios);
-    background: var(--btn-aceptarCambios);
-    color: var(--blanco)
+    border: 1px solid var(--btn-aceptarCambios) !important ;
+    background: var(--btn-aceptarCambios) !important ;
+    color: var(--blanco) !important ;
 }
 .btn-finalizados:hover{
-    border: 1px solid var(--btn-finalizados);
-    background: var(--btn-finalizados);
-    color: var(--blanco)
+    border: 1px solid var(--btn-finalizados) !important ;
+    background: var(--btn-finalizados) !important ;
+    color: var(--blanco) !important ;
 }
 .btn-all:hover{
-    border: 1px solid var(--btn-all);
-    background: var(--btn-all);
-    color: var(--blanco)
+    border: 1px solid var(--btn-all) !important ;
+    background: var(--btn-all) !important ;
+    color: var(--blanco) !important ;
 }
 .btn-excel:hover{
-    border: 1px solid var(--btn-excel);
-    background: var(--btn-excel);
-    color: var(--blanco)
+    border: 1px solid var(--btn-excel) !important ;
+    background: var(--btn-excel) !important ;
+    color: var(--blanco) !important ;
 }
 .btn-pdf:hover{
-    border: 1px solid var(--btn-pdf);
-    background: var(--btn-pdf);
-    color: var(--blanco)
+    border: 1px solid var(--btn-pdf) !important ;
+    background: var(--btn-pdf) !important ;
+    color: var(--blanco) !important ;
 }
 .btn-oscuro:hover{
-    border: 1px solid var(--btn-oscuro);
-    background: var(--btn-oscuro);
-    color: var(--blanco)
+    border: 1px solid var(--btn-oscuro) !important ;
+    background: var(--btn-oscuro) !important ;
+    color: var(--blanco) !important ;
 }
 
 

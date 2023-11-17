@@ -24,7 +24,7 @@
 }
 
 .opciones input:checked+label {
-    color: var(--blanco);
+    color: var(--blanco) !important;
 }
 
 .opciones .btn-porAprobar:checked+label {
