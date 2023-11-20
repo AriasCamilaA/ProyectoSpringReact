@@ -45,3 +45,22 @@ export const formatearFecha = (fechaString) => {
     // Concatenar y devolver la fecha formateada
     return `${dia}/${mes}/${anio}`;
   };
+
+export const formatearFechaParaInputDate= (fecha) => {
+    // Asegúrate de que la fecha es un array con al menos tres elementos
+    if (!Array.isArray(fecha) || fecha.length < 3) {
+        return null; // Si la fecha no es válida, devuelve null
+    }
+
+    // Extrae los componentes de la fecha
+    const [anio, mes, dia] = fecha;
+
+    // Añade ceros a la izquierda si es necesario (para asegurar dos dígitos en mes y día)
+    const mesFormateado = mes.toString().padStart(2, '0');
+    const diaFormateado = dia.toString().padStart(2, '0');
+
+    // Formatea la fecha como "YYYY-MM-DD"
+    const fechaFormateada = `${anio}-${mesFormateado}-${diaFormateado}`;
+
+    return fechaFormateada;
+}

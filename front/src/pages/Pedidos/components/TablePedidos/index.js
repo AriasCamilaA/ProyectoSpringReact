@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { formatearFecha } from "../../../../utilities";
 
-const TablePedidos = ({pedidosNoFinalizados, pedidosFinalizados, searchTerm, estados, fechaInicio, fechaFin}) => {
+const TablePedidos = ({pedidosNoFinalizados, pedidosFinalizados, searchTerm, estados, fechaInicio, fechaFin, setPedidoById}) => {
     const [tabActual, setTabActual] = useState('Pendientes');
 
     const cambiarTab = (tab) => {
@@ -94,9 +94,9 @@ const TablePedidos = ({pedidosNoFinalizados, pedidosFinalizados, searchTerm, est
                                             </label>
                                         </td>
                                         <td className="tabla__opcion">
-                                            <a href="./verPedido">
+                                            <div data-bs-toggle="modal" data-bs-target="#update" onClick={()=>setPedidoById(pedido.idPedido)}>
                                                 <img src="/assets/icons/visualizar.png" alt="Visualizar" />
-                                            </a>
+                                            </div>
                                         </td>
                                     </tr>
                                 ))}
@@ -150,9 +150,9 @@ const TablePedidos = ({pedidosNoFinalizados, pedidosFinalizados, searchTerm, est
                                             </label>
                                         </td>
                                         <td className="tabla__opcion">
-                                            <a href="./verPedido">
+                                            <div data-bs-toggle="modal" data-bs-target="#update" onClick={()=>setPedidoById(pedido.idPedido)}>
                                                 <img src="/assets/icons/visualizar.png" alt="Visualizar" />
-                                            </a>
+                                            </div>
                                         </td>
                                     </tr>
                                 ))}

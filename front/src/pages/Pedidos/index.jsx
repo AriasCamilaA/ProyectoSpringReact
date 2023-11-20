@@ -8,6 +8,7 @@ import "../../css/tablas.css";
 import "../../css/filtros.css";
 import "./Pedidos.css"
 import "../../css/botones.css";
+import UpdatePedido from './components/UpdatePedido';
 
 const Pedidos = () => {
     const [pedidos, setPedidos] = useState([]);
@@ -18,6 +19,7 @@ const Pedidos = () => {
     const [selectedEstado, setSelectedEstado] = useState(null);
     const [fechaInicio, setFechaInicio] = useState("");
     const [fechaFin, setFechaFin] = useState("");
+    const [pedidoById, setPedidoById] = useState();
 
     const estados = [
         { label: 'Por Aprobar', value: 'porAprobar' },
@@ -150,6 +152,7 @@ const Pedidos = () => {
                     estados={estados}
                     fechaInicio={fechaInicio}
                     fechaFin={fechaFin}
+                    setPedidoById={setPedidoById}
                 />
             </div>
             
@@ -170,7 +173,23 @@ const Pedidos = () => {
                     </div>
                 </div>
             </div>
-
+            <div className="modal fade" id="update" tabIndex={-1} role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+                <div className="modal-dialog modal-xl" role="document">
+                    <div className="modal-content">
+                        <div className="modal-header d-flex align-items-start">
+                            <h5 className="modal-title" id="modalTitleId">Actualizar Pedido # {pedidoById}</h5>
+                            <button type="button" className="btn-close text-light p-0" data-bs-dismiss="modal" aria-label="Close">
+                                <p style={{fontFamily: "arial"}}>x</p>
+                            </button>
+                        </div>
+                        <div className="modal-body">
+                            <div className="container-fluid">
+                                {pedidoById && <UpdatePedido pedidoById={pedidoById}/>}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </>
     );
 };

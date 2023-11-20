@@ -137,3 +137,52 @@ footer {
     border-radius: 10px;
     background: var(--oscuro); 
 }
+
+/* Colors */
+.color-oscuro{
+    color: var(--oscuro);
+}
+.color-medio{
+    color: var(--medio);
+}
+.color-claro{
+    color: var(--claro);
+}
+.color-fondo1{
+    color: var(--fondo1);
+}
+.color-fondo2{
+    color: var(--fondo2);
+}
+.color-fondo3{
+    color: var(--fondo3);
+}
+.color-black{
+    color: black;
+}
+
+
+/* Backgrounds */
+.bg-oscuro{
+    background-color: var(oscuro);
+}
+.bg-medio{
+    background-color: var(medio);
+}
+.bg-claro{
+    background-color: var(claro);
+}
+.bg-fondo1{
+    background-color: var(fondo1);
+}
+.bg-fondo2{
+    background-color: var(fondo2);
+}
+.bg-fondo3{
+    background-color: var(fondo3);
+}
+
+input:focus, textarea:focus {
+    border-color: var(--fondo2) !important;
+    box-shadow: 0 0 5px var(--fondo2) !important;
+}

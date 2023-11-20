@@ -17,6 +17,19 @@ const apiService = {
         }
         
     },
+    getPedidosById : async (id) => {
+        try {
+            const url_pedidos = url + "pedidos/"+id;
+            const response = await axios.get(url_pedidos);
+            const data = response.data;
+            // console.log(data)
+            return data;
+        } catch (error) {
+            console.error("API ERROR: PEDIDO POR ID: "+error);
+            throw error;
+        }
+        
+    },
     createPedido : async (pedido) => {
         try {
             pedido.estado = 0;
