@@ -22,7 +22,7 @@ const MenuPrincipal = () => {
       <h2>Proveedores</h2>
     </div>
     <div className="btn_opciones">
-      <a href="pedidos/visualizarPedido">
+      <a href="pedidos">
         <img src="assets/icons/Pedidos.png" alt />
       </a>
       <h2>Pedidos</h2>

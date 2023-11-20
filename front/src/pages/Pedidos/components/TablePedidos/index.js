@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { formatearFecha } from "../../../../utilities";
 
-const TablePedidos = ({pedidosNoFinalizados, pedidosFinalizados, searchTerm, estados}) => {
+const TablePedidos = ({pedidosNoFinalizados, pedidosFinalizados, searchTerm, estados, fechaInicio, fechaFin}) => {
     const [tabActual, setTabActual] = useState('Pendientes');
 
     const cambiarTab = (tab) => {
@@ -65,7 +65,21 @@ const TablePedidos = ({pedidosNoFinalizados, pedidosFinalizados, searchTerm, est
                         </thead>
                         <tbody>
                             {pedidosNoFinalizados
+                                .filter(pedido => {
+                                    const fechaPedido = new Date(pedido.fechaPedido).getTime();
+                                    const fechaInicioTime = fechaInicio ? new Date(fechaInicio).getTime() : 0;
+                                    const fechaFinTime = fechaFin ? new Date(fechaFin).getTime() : Infinity;
+
+                                    return (
+                                        fechaPedido >= fechaInicioTime &&
+                                        fechaPedido <= fechaFinTime &&
+                                        (pedido.usuario.nombreUsuario.toLowerCase().includes(searchTerm) ||
+                                            pedido.usuario.apellidoUsuario.toLowerCase().includes(searchTerm) ||
+                                            pedido.usuario.noDocumentoUsuario.toString().toLowerCase().includes(searchTerm))
+                                    );
+                                })
                                 .filter(pedido => pedido.usuario.nombreUsuario.toLowerCase().includes(searchTerm) || pedido.usuario.apellidoUsuario.toLowerCase().includes(searchTerm) || pedido.usuario.noDocumentoUsuario.toString().toLowerCase().includes(searchTerm))
+                                .sort((a, b) => b.idPedido - a.idPedido)
                                 .map((pedido) => (
                                     <tr key={pedido.idPedido}>
                                         <th>{pedido.idPedido}</th>
@@ -107,7 +121,21 @@ const TablePedidos = ({pedidosNoFinalizados, pedidosFinalizados, searchTerm, est
                         </thead>
                         <tbody>
                             {pedidosFinalizados
+                                .filter(pedido => {
+                                    const fechaPedido = new Date(pedido.fechaPedido).getTime();
+                                    const fechaInicioTime = fechaInicio ? new Date(fechaInicio).getTime() : 0;
+                                    const fechaFinTime = fechaFin ? new Date(fechaFin).getTime() : Infinity;
+
+                                    return (
+                                        fechaPedido >= fechaInicioTime &&
+                                        fechaPedido <= fechaFinTime &&
+                                        (pedido.usuario.nombreUsuario.toLowerCase().includes(searchTerm) ||
+                                            pedido.usuario.apellidoUsuario.toLowerCase().includes(searchTerm) ||
+                                            pedido.usuario.noDocumentoUsuario.toString().toLowerCase().includes(searchTerm))
+                                    );
+                                })
                                 .filter(pedido => pedido.usuario.nombreUsuario.toLowerCase().includes(searchTerm) || pedido.usuario.apellidoUsuario.toLowerCase().includes(searchTerm) || pedido.usuario.noDocumentoUsuario.toString().toLowerCase().includes(searchTerm))
+                                .sort((a, b) => b.idPedido - a.idPedido)
                                 .map((pedido) => (
                                     <tr key={pedido.idPedido}>
                                         <th>{pedido.idPedido}</th>

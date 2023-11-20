@@ -16,6 +16,9 @@ const Pedidos = () => {
     const [estadosPedidos, setEstadosPedidos] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedEstado, setSelectedEstado] = useState(null);
+    const [fechaInicio, setFechaInicio] = useState("");
+    const [fechaFin, setFechaFin] = useState("");
+
     const estados = [
         { label: 'Por Aprobar', value: 'porAprobar' },
         { label: 'Aprobado', value: 'aprobado' },
@@ -62,7 +65,9 @@ const Pedidos = () => {
     };
 
     const limpiarFiltros = () => {
-        setSearchTerm("")
+        setSearchTerm("");
+        setFechaInicio("");
+        setFechaFin("");
     }
 
     const actualizarListaPedidos = async () => {
@@ -73,6 +78,7 @@ const Pedidos = () => {
           console.error("Error al actualizar la lista de pedidos:", error);
         }
       };
+
 
     return (
         <>
@@ -123,8 +129,8 @@ const Pedidos = () => {
                             <input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} id="searchTerm" placeholder='Nombre o #Documento' />
                         </div>
                         <div className="filtros__fecha">
-                            <input type="date" />
-                            <input type="date" />
+                            <input type="date" value={fechaInicio} onChange={(e) => setFechaInicio(e.target.value)} id="fechaInicio"/>
+                            <input type="date" value={fechaFin} onChange={(e) => setFechaFin(e.target.value)} id="fechaFin"/>
                         </div>
                         <p className='btn btn-oscuro mb-0 py-1 px-2' onClick={()=>limpiarFiltros()}>x</p>
                     </div>
@@ -142,6 +148,8 @@ const Pedidos = () => {
                     pedidosFinalizados={pedidosFinalizados}
                     searchTerm={searchTerm}
                     estados={estados}
+                    fechaInicio={fechaInicio}
+                    fechaFin={fechaFin}
                 />
             </div>
             

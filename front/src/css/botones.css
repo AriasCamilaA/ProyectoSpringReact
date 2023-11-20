@@ -9,6 +9,7 @@
     --btn-all:#444f4d;
     --btn-excel: #165331;
     --btn-pdf: #b20902;
+    --btn-trash: #c31913;
     --btn-oscuro: var(--oscuro);
 }
 
@@ -131,5 +132,13 @@
     background: var(--btn-oscuro) !important ;
     color: var(--blanco) !important ;
 }
-
-
+/* ________btn-trash_________ */
+.btn-trash{
+    border: 1px solid var(--btn-trash) !important ;
+    color: var(--btn-trash) !important ;
+}
+.btn-trash:hover{
+    border: 1px solid var(--btn-trash) !important ;
+    background: var(--btn-trash) !important ;
+    color: var(--blanco) !important ;
+}
