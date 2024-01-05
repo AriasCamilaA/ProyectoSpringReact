@@ -57,7 +57,7 @@ const NavBar = () => {
       <li>
         <a className="dropdown-item" href="#">
           <img src='/assets/icons/LogoUserWhite.png'/>
-          Perfil
+          Perfil de Usuario
         </a>
       </li>
       <li>
